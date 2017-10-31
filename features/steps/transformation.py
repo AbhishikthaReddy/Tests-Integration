@@ -11,7 +11,7 @@ class scenario(object):
 
 	def scenario_writing_to_files(self, interestRate, termlength, fieldsep, masterfile_loc, today_now, resultsfilelocation):
 
-		scenario_value = input("1. Enter 1 for Fee Plan Check" + "\n2. Enter 1 for Fee Plan Check" + "\n2. Enter 3 for Fee Plan Validation" + "\n2. Enter 4 for Loan Plan Validation")
+		scenario_value = input("1. Enter 1 for Fee Plan Check" + "\n2. Enter 1 for Fee Plan Check" + "\n3. Enter 3 for Fee Plan Validation" + "\n4. Enter 4 for Loan Plan Validation")
 
 		if scenario_value == "1":
 
@@ -93,7 +93,44 @@ class scenario(object):
 					output.close()
 
 		elif scenario_value == "3":
-		elif scenario_value == "4":
+			accountid = input("Enter the AccountID: ")
+			customerid = input("Enter the CustomerID: ")
+			loanid = input("Enter the LoanID: ")
+
+			fee_plan_validation_folder = resultsfilelocation + "/" + today_now + "/" + "Fee Plan Validation/"
+			print(fee_plan_validation_folder)
+
+			for root, dirs, files in os.walk("data/PortfolioFile"):
+
+				for file in files:
+
+					files1 = os.path.basename(file)
+					full_path = os.path.join(root, files1)
+
+					data_file = pd.read_csv(full_path,sep="|")
+					data_file_df = pd.DataFrame(data_file)
+
+					for i in range(len(data_file_df['CustomerID'])):
+
+						if str(data_file_df['AccountID'][i]) == str(accountid) and str(data_file_df['CustomerID'][i]) == str(customerid) and str(data_file_df['LoanID'][i]) == str(loanid):
+							if str(data_file_df['InterestRate'][i])==interestRate and str(data_file_df['TermLengthMonths'][i])==termlength:
+								if data_file_df['PortfolioTransactionId'][i] == 0:
+									line1 = {"Test name": "Fee Plan Validation", "Result": "Passed", "Output": "For AccountID: "+ accountid+ " and for CustomerID: "+ customerid +" the Fee Plan is present"}
+									break
+
+								else:
+									line1 = {"Test name": "Fee Plan Validation", "Result": "Failed", "Output": "For AccountID: "+ accountid+ " and for CustomerID: "+ customerid +" the Fee Plan is not present"}
+
+							else:
+								line1 = {"Test name": "Fee Plan Validation", "Result": "Failed", "Output": "Incorrect Data Provided"}
+
+						with open(fee_plan_validation_folder+"fee_plan_validation.json", "a") as output:
+							json.dump(line1, output, indent=4)
+						output.close()
+
+
+		# elif scenario_value == "4":
+
 		else:
 			print("Please provide proper input")
 
