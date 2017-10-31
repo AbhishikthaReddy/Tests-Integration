@@ -4,6 +4,7 @@
   "interest_rate" : "0.14",
   "termlengthmonths" : "12",
   "fieldseparator": "|",
+  
   "files": {
      "file1": {
        "filename": "PortfolioFile"

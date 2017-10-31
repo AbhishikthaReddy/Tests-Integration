@@ -14,7 +14,6 @@ class retrieve_files(object):
 			text_files = masterfile.files
 			folder_names = masterfile.files['file1']['filename']
 			data_files_all = os.walk(data_file_loc + "/" + folder_names)
-
 			return 
 		except Exception as err:
 			print(err)

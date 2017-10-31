@@ -8,22 +8,16 @@ from dir_file import dir_create
 @given('a file')
 def step_given_the_file(context):
 	
-	accountid = context.config.userdata.get("accountid")
-	customerid = context.config.userdata.get("customerid")
-	loanid = context.config.userdata.get("loanid")
-	originalpurchaseamount = context.config.userdata.get("originalpurchaseamount")
-	disbursementdate = context.config.userdata.get("disbursementdate")
 	masterfile_loc = context.config.userdata.get("masterfile_loc")
 	date = context.config.userdata.get("date")
 	resultsfiles_loc = context.config.userdata.get("resultsfilelocation")
-
 	
 	context.transformation = scenario()
 	context.files = retrieve_files()
 	dir_file = dir_create()
-	values = dir_file.dir(resultsfiles_loc)
+	today_now = dir_file.dir(resultsfiles_loc)
 	context.files.files(date, masterfile_loc)
-	context.transformation.scenario_writing_to_files(accountid, customerid, loanid, originalpurchaseamount, disbursementdate, masterfile_loc)
+	context.transformation.scenario_writing_to_files(masterfile_loc, today_now, resultsfiles_loc)
 	pass
 
 @then('validate presence of fee plan')

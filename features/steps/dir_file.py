@@ -19,4 +19,4 @@ class dir_create(object):
 		if not os.path.exists(today_now + "/" + mydir_loanplan):
 			os.makedirs(mydir_loanplan)
 
-		return
+		return today_now
