@@ -1,0 +1,1 @@
+AccountID|CustomerID|StatementDate|LoanID|ProjectionNumber|InterestRate|Amount|Principal|MonthlyFee|OriginationFee

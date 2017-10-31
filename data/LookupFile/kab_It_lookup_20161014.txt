@@ -1,0 +1,22 @@
+LookupTableName|ColumnName|ID|Value
+ClusterTypes|ClusterTypeID|-100|Unknown
+CustomerPortfolio|CustomerPortfolioID|ing|ingIT
+CustomerPortfolio|CustomerPortfolioID|KBG|Kabbage
+CustomerPortfolio|CustomerPortfolioID|NA|Not Applicable
+ErrorTypes|ErrorTypeID|-100|Unknown
+EvaluationCodes|CustomerTypeID|-100|Unknown
+EvaluationReasonCodes|EvaluationReason|CA|Customer added channel
+EvaluationReasonCodes|EvaluationReason|CR|Channel Refreshed
+EvaluationReasonCodes|EvaluationReason|NB|Nightly batch
+EvaluationResultCodes|EvaluationResult|A|Accept
+EvaluationResultCodes|EvaluationResult|D|Decline
+EvaluationResultCodes|EvaluationResult|E|Error
+EvaluationResultCodes|EvaluationResult|N|NotAccept
+EventCodes|EventTypeID|-100|Unknown
+EventSourceSystemCodes|SourceSystem|D|Data Service
+EventSourceSystemCodes|SourceSystem|F|Funding Service
+ExclusionCodes|RuleCodeID|-100|Unknown
+ExternalSourceCodes|SourceTypeID|-100|Unknown
+ExternalSourceStatus|StatusID|-100|Unknown
+ModelCodes|ModelID|-100|Unknown
+ProcessCodes|ProcessID|-100|Unknown

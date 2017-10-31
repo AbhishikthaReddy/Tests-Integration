@@ -1,0 +1,4 @@
+AccountID|CustomerID|LoanID|PostedTransactionID|ReversalTransactionID|TransactionReversalFlag|AmountAppliedToLoan|PrincipalPaymentApplied|FeePaymentApplied|FeeApplied|PaymentApplied|AdvanceApplied|PrincipalAmountAppliedToLoan|FeeAmountAppliedToLoan|NSFFeeAmountAppliedToLoan|LateFeeAmountAppliedToLoan|AmountAppliedToOtherFees|InterestAmountAppliedToLoan|TransactionAmount|TransactionCode
+390212|2402202108|262918|343314795|0|False|-847.26|-833.26|-14.00|.00|-847.26|.00|-833.26|-14.00|.00|.00|.00|.00|-847.26|8505
+391241|2402202104|262921|343314831|0|False|-847.26|-833.26|-14.00|.00|-847.26|.00|-833.26|-14.00|.00|.00|.00|.00|-2118.26|8505
+391241|2402202104|262941|343314831|0|False|-1271.00|-1250.00|-21.00|.00|-1271.00|.00|-1250.00|-21.00|.00|.00|.00|.00|-2118.26|8505

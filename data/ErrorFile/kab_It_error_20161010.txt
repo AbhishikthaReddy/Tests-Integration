@@ -1,0 +1,1 @@
+AccountID|CustomerID|ErrorDate|ErrorTime|ErrorID|ProcessID|ErrorTypeID|Comment|ExternalSourceID

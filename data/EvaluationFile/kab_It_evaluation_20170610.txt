@@ -1,0 +1,1 @@
+AccountID|CustomerID|EvaluationID|CustomerTypeID|EvaluationReason|EvaluationResult|EvaluationDate|EvaluationTime|PD|ADB|RawLimit|InterestRate|Multiplier

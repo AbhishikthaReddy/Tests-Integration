@@ -1,0 +1,10 @@
+{
+ "partner": "ING",
+  "datafilelocation" : "data",
+  "files": {
+     "file1": {
+       "filename": "PortfolioFile"
+     }
+  }
+}
+

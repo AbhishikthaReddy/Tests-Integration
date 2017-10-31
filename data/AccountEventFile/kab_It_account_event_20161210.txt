@@ -1,0 +1,1 @@
+AccountID|CustomerID|EventDate|EventTime|EventTypeID|NewValue|OldValue|EventID

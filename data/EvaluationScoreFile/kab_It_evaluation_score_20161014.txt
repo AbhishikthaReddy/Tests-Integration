@@ -1,0 +1,1 @@
+AccountID|CustomerID|ModelID|ExecutionID|ScoreDate|ScoreTime|Score|Tier|PD|EvaluationID

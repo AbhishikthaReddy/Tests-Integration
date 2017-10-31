@@ -1,0 +1,13 @@
+AccountID|CustomerID|CreationDate|CreationTime|QualificationDate|QualificationTime|CycleDate|UtilizationRate|HasFlag|HasActiveFlag|AccountType|AccountStatus|ManualAccountStatus|MOB|CurrentBalance|PrincipalBalance|FeeBalance|CreditLimit|AvailableLine|CycleDelinquent|DelinquencyBucket|DelinquencyReason|DaysToActivate
+392068|200812202102|20170119|35199|20170120|15455|10||False||Qualified|Closed|Active|-2|||||||||-255
+385030|200812202114|20161207|14882|20170120|14455|10||False||Qualified|Active|Active|-2|||||||||-255
+385570|2402202113|20161209|30745|20170120|14555|10||False||Qualified|Active|Active|-2|||||||||-255
+388727|2402202111|20161219|8182|20170120|14655|10||False||Qualified|Closed|Active|-2|||||||||-255
+389045|2402202110|20161221|25250|20170120|14755|10||False||Qualified|Active|Active|-2|||||||||-255
+389046|2402202109|20161221|19175|20170120|14855|10||False||Qualified|Active|Active|-2|||||||||-255
+390212|2402202108|20170111|31693|20170120|14955|10||False||Qualified|Active|Active|-2|||||||||-255
+390757|2402202107|20170111|1519|20170120|15055|10||False||Qualified|Active|Active|-2|||||||||-255
+391227|2402202105|20170114|33716|20170120|15155|10||False||Qualified|Active|Active|-2|||||||||-255
+391241|2402202104|20170114|23835|20170120|15255|10||False||Qualified|Active|Active|-2|||||||||-255
+391951|2402202103|20170118|35741|20170120|15355|10||False||Qualified|Active|Active|-2|||||||||-255
+1001063074|2402202101|20170118|35199|20170120|15455|10||False||Qualified|Active|Natural Disaster|-2|||||||||-255

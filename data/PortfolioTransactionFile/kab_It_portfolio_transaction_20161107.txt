@@ -1,0 +1,3 @@
+AccountID|CustomerID|LoanID|PostedTransactionID|ReversalTransactionID|TransactionReversalFlag|AmountAppliedToLoan|PrincipalPaymentApplied|FeePaymentApplied|FeeApplied|PaymentApplied|AdvanceApplied|PrincipalAmountAppliedToLoan|FeeAmountAppliedToLoan|NSFFeeAmountAppliedToLoan|LateFeeAmountAppliedToLoan|AmountAppliedToOtherFees|InterestAmountAppliedToLoan|TransactionAmount|TransactionCode
+1001063074|2402202101|262912|343291286|0|False|-20.00|.00|.00|.00|.00|.00|.00|.00|.00|-20.00|.00|.00|-6714.64|8508
+1001063074|2402202101|262924|343291286|0|False|-6694.64|.00|.00|.00|.00|.00|-6666.64|-28.00|.00|.00|.00|.00|-6714.64|8508

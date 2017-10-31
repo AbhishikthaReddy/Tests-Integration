@@ -1,0 +1,12 @@
+FileName|NumberOfRows
+kab_It_account_20160810.txt|12
+kab_It_account_event_20160810.txt|0
+kab_It_account_exclusion_rule_20160810.txt|0
+kab_It_error_20160810.txt|0
+kab_It_evaluation_20160810.txt|0
+kab_It_evaluation_score_20160810.txt|0
+kab_It_external_sources_20160810.txt|0
+kab_It_lookup_20160810.txt|21
+kab_It_portfolio_20160810.txt|29
+kab_It_portfolio_projection_20160810.txt|160
+kab_It_portfolio_transaction_20160810.txt|28
