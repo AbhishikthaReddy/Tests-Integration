@@ -8,14 +8,15 @@ class dir_create(object):
 		self.fn = None
 
 	def dir(self, resultsfilelocation):
+
 		today_now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-		mydir_feeplan = os.path.join(resultsfilelocation, "Fee Plan Check")
-		mydir_loanplan = os.path.join(resultsfilelocation, "Loan Plan Check")
-		if not os.path.exists(mydir_feeplan):
+		mydir_feeplan = os.path.join(resultsfilelocation, today_now, "Fee Plan Check")
+		mydir_loanplan = os.path.join(resultsfilelocation, today_now, "Loan Plan Check")
+
+		if not os.path.exists(today_now + "/" + mydir_feeplan):
 			os.makedirs(mydir_feeplan)
 
-		if not os.path.exists(mydir_loanplan):
+		if not os.path.exists(today_now + "/" + mydir_loanplan):
 			os.makedirs(mydir_loanplan)
 
-
-		return  mydir_feeplan, mydir_loanplan
+		return
