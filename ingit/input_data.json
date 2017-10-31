@@ -1,0 +1,13 @@
+
+{
+	"input1" :{
+		"AccountID" : "385030",
+		"CustomerID" : "200812202114",
+		"LoanID" : "262901"
+	},
+	"input2" :{
+		"AccountID" : "385570",
+		"CustomerID" : "2402202113",
+		"LoanID" : "262902"
+	}
+}

@@ -11,14 +11,16 @@ def step_given_the_file(context):
 	masterfile_loc = context.config.userdata.get("masterfile_loc")
 	date = context.config.userdata.get("date")
 	resultsfiles_loc = context.config.userdata.get("resultsfilelocation")
+	input_json_data = context.config.userdata.get("input_data_file")
 	
 	context.transformation = scenario()
 	context.files = retrieve_files()
-	interestRate, termlength, fieldsep = context.files.files(date, masterfile_loc)
 	dir_file = dir_create()
+
+	termlength, fieldsep = context.files.files(date, masterfile_loc)
 	today_now = dir_file.dir(resultsfiles_loc)
-	context.files.files(date, masterfile_loc)
-	context.transformation.scenario_writing_to_files(interestRate, termlength, fieldsep, masterfile_loc, today_now, resultsfiles_loc)
+	context.transformation.scenario_writing_to_files(termlength, fieldsep, masterfile_loc, today_now, resultsfiles_loc, input_json_data)
+
 	pass
 
 @then('validate presence of fee plan')
