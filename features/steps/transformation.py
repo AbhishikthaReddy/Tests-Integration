@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+from datetime import date
 
 class scenario(object):
 
@@ -7,8 +8,9 @@ class scenario(object):
 		self.fn = None
 
 
-	def scenario_writing_to_files(self,accountid,customerid,loanid,interest_rate,termlengthmonths,originalpurchaseamount,disbursementdate):
+	def scenario_writing_to_files(self,today_now,resultsfilelocation,accountid,customerid,loanid,interest_rate,termlengthmonths,originalpurchaseamount,disbursementdate,resultsfiles_loc):
 
+		today = date.today()
 		#fee plan and loan plan check
 		for root, dirs, files in os.walk("C:\\Users\\atlantaadmin\\Desktop\\Orion\\Kabbage1\\Tests-Integration\\data\\PortfolioFile\\"):
 			for file in files:

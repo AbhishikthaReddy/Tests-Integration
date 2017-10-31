@@ -14,8 +14,9 @@ def step_given_the_file(context):
 	originalpurchaseamount = context.config.userdata.get("originalpurchaseamount")
 	disbursementdate = context.config.userdata.get("disbursementdate")
 	masterfile_loc=context.config.userdata.get("masterfile_loc")
+	resultsfiles_loc = context.config.userdata.get("resultsfiles_loc")
 	date=context.config.userdata.get("date")
-	context.transformation.scenario_writing_to_files(accountid,customerid,loanid,interest_rate,termlengthmonths,originalpurchaseamount,disbursementdate)
+	context.transformation.scenario_writing_to_files(accountid,customerid,loanid,interest_rate,termlengthmonths,originalpurchaseamount,disbursementdate,resultsfiles_loc)
 	pass
 
 @then('validate presence of fee plan')
