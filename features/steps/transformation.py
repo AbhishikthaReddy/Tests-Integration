@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 from datetime import date
+from files import retrieve_files
 
 class scenario(object):
 
@@ -8,7 +9,8 @@ class scenario(object):
 		self.fn = None
 
 
-	def scenario_writing_to_files(self,accountid,customerid,loanid,originalpurchaseamount,disbursementdate, masterfile_loc):
+
+	def scenario_writing_to_files(self,accountid,customerid,loanid,disbursementdate,interestRate,termlength,fieldsep,originalpurchaseamount):
 
 		today = date.today()
 		#fee plan and loan plan check
@@ -16,11 +18,11 @@ class scenario(object):
 			for file in files:
 				files1=os.path.basename(file)
 				full_path = os.path.join(root, files1)
-				read_f=pd.read_csv(full_path,sep="|")
+				read_f=pd.read_csv(full_path,sep=fieldsep)
 				df=pd.DataFrame(read_f)
 				for i in range(len(df['AccountID'])):
 					if str(df['AccountID'][i]) == str(accountid) and str(df['CustomerID'][i])== str(customerid) and str(df['LoanID'][i])==str(loanid):
-						if str(df['InterestRate'][i])=="0.14" and str(df['DisbursementDate'][i])==disbursementdate and str(df['OriginalPurchaseAmount'][i])==originalpurchaseamount and (df['TermLengthMonths'][i])=="12" :
+						if str(df['InterestRate'][i])==interestRate and str(df['DisbursementDate'][i])==disbursementdate and str(df['OriginalPurchaseAmount'][i])==originalpurchaseamount and (df['TermLengthMonths'][i])==termlength :
 							if df['PortfolioTransactionId'][i]==0:
 								print("This is in fee plan")
 							else:
