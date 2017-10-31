@@ -1,6 +1,7 @@
 import pandas as pd
 import os, json
 from datetime import date
+from files import retrieve_files
 
 class scenario(object):
 
@@ -8,7 +9,7 @@ class scenario(object):
 		self.fn = None
 
 
-	def scenario_writing_to_files(self, masterfile_loc, today_now, resultsfilelocation):
+	def scenario_writing_to_files(self, interestRate, termlength, fieldsep, masterfile_loc, today_now, resultsfilelocation):
 
 		scenario_value = input("1. Enter 1 for Fee Plan Check" + "\n2. Enter 1 for Fee Plan Check")
 		if scenario_value == "1":

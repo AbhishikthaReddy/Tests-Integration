@@ -14,10 +14,11 @@ def step_given_the_file(context):
 	
 	context.transformation = scenario()
 	context.files = retrieve_files()
+	interestRate, termlength, fieldsep = context.files.files(date, masterfile_loc)
 	dir_file = dir_create()
 	today_now = dir_file.dir(resultsfiles_loc)
 	context.files.files(date, masterfile_loc)
-	context.transformation.scenario_writing_to_files(masterfile_loc, today_now, resultsfiles_loc)
+	context.transformation.scenario_writing_to_files(interestRate, termlength, fieldsep, masterfile_loc, today_now, resultsfiles_loc)
 	pass
 
 @then('validate presence of fee plan')
