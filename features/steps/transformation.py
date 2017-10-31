@@ -11,7 +11,8 @@ class scenario(object):
 
 	def scenario_writing_to_files(self, interestRate, termlength, fieldsep, masterfile_loc, today_now, resultsfilelocation):
 
-		scenario_value = input("1. Enter 1 for Fee Plan Check" + "\n2. Enter 1 for Fee Plan Check")
+		scenario_value = input("1. Enter 1 for Fee Plan Check" + "\n2. Enter 1 for Fee Plan Check" + "\n2. Enter 3 for Fee Plan Validation" + "\n2. Enter 4 for Loan Plan Validation")
+
 		if scenario_value == "1":
 
 			accountid = input("Enter the AccountID: ")
@@ -91,7 +92,8 @@ class scenario(object):
 						json.dump(line1, output, indent=4)
 					output.close()
 
+		elif scenario_value == "3":
+		elif scenario_value == "4":
 		else:
-
 			print("Please provide proper input")
 
