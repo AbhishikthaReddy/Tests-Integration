@@ -76,5 +76,4 @@ class scenario(object):
 						output.close()
 
 		except Exception as err:
-
 			print("Error encountered "+str(err))

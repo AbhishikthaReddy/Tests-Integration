@@ -30,3 +30,11 @@ def step_presence_of_fee_plan(context):
 @then('validate presence of loan plan')
 def step_presence_of_loan_plan(context):
 	pass
+
+@then('validate fee plan')
+def step_validate_fee_plan(context):
+	pass
+
+@then('validate loan plan')
+def step_validate_loan_plan(context):
+	pass
