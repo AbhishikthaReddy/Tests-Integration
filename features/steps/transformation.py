@@ -10,7 +10,7 @@ class scenario(object):
 
 
 
-	def scenario_writing_to_files(self,accountid,customerid,loanid,disbursementdate,interestRate,termlength,fieldsep,originalpurchaseamount):
+	def scenario_writing_to_files(self,accountid,customerid,loanid,fieldsep):
 
 		today = date.today()
 		#fee plan and loan plan check
@@ -22,15 +22,12 @@ class scenario(object):
 				df=pd.DataFrame(read_f)
 				for i in range(len(df['AccountID'])):
 					if str(df['AccountID'][i]) == str(accountid) and str(df['CustomerID'][i])== str(customerid) and str(df['LoanID'][i])==str(loanid):
-						if str(df['InterestRate'][i])==interestRate and str(df['DisbursementDate'][i])==disbursementdate and str(df['OriginalPurchaseAmount'][i])==originalpurchaseamount and (df['TermLengthMonths'][i])==termlength :
 							if df['PortfolioTransactionId'][i]==0:
 								print("This is in fee plan")
 							else:
 								print("This is in loan plan")
-						else:
-							print("Mismatch data")
 					else:
-						print("Mismatch AccountID or CustomerID or LoanID")
+						print("Mismatch data")
 
 
 
