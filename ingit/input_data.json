@@ -6,35 +6,41 @@
 			"CustomerID" : "200812202114",
 			"LoanIDs" : ["262901"],
 			"ScenarioOutline" : ["3"],
-			"LoanAmount" : "10000"
+			"LoanAmount" : "10000",
+			"InterestRate" : "14"
 		},
 		"Test-case2" :{
 			"AccountID" : "385570",
 			"CustomerID" : "2402202113",
 			"LoanIDs" : ["262902"],
 			"ScenarioOutline" : ["4"],
-			"LoanAmount" : "10000"
+			"LoanAmount" : "10000",
+			"InterestRate" : "14"
 		},
 		"Test-case3" :{
 			"AccountID" : "385570",
 			"CustomerID" : "2402202113",
 			"LoanIDs" : ["262902"],
 			"ScenarioOutline" : ["5"],
-			"LoanAmount" : "10000"
+			"LoanAmount" : "10000",
+			"InterestRate" : "14"
 		},
 		"Test-case4" :{
 			"AccountID" : "385570",
 			"CustomerID" : "2402202113",
 			"LoanIDs" : ["262902"],
 			"ScenarioOutline" : ["6"],
-			"LoanAmount" : "10000"
+			"LoanAmount" : "10000",
+			"InterestRate" : "14"
 		},
 		"Test-case5" :{
 			"AccountID" : "385570",
 			"CustomerID" : "2402202113",
 			"LoanIDs" : ["262902"],
 			"ScenarioOutline" : [],
-			"LoanAmount" : "10000"
+			"LoanAmount" : "10000",
+			"InterestRate" : "14"
 		}
+
 	}
 }

@@ -16,5 +16,3 @@ Scenario: To validate NextPaymentAmount
 
 Scenario: To validate RemainingPayments
 	Then validate RemainingPayments
-
-

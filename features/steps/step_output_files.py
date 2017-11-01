@@ -22,11 +22,13 @@ def step_the_input_data(context):
 	try:
 		input_json_data = pd.read_json(input_json_data_file)
 
+
 		for i in range(len(input_json_data['Test-cases'])):
 			accountid = input_json_data['Test-cases'].ix[i]['AccountID']
 			customerid = input_json_data['Test-cases'].ix[i]['CustomerID']
 			loanid = input_json_data['Test-cases'].ix[i]['LoanIDs']
 			scenarios_to_be_done = input_json_data['Test-cases'].ix[i]['ScenarioOutline']
+			interest_rate=input_json_data['Test-cases'].ix[i]['InterestRate']
 
 			if len(scenarios_to_be_done) > 0:
 
@@ -40,7 +42,7 @@ def step_the_input_data(context):
 						@then('validate presence of fee plan')
 						def step_presence_of_fee_plan(context):
 							context.transformation = scenario()
-							context.transformation.scenario_writing_to_files(termlength, fieldsep, today_now, resultsfiles_loc, accountid, customerid, loanid[0])
+							context.transformation.scenario_writing_to_files(termlength, fieldsep, today_now, resultsfiles_loc, accountid, customerid, loanid[0],interest_rate)
 							pass
 
 					elif scenarios_to_be_done[i] == "4":
