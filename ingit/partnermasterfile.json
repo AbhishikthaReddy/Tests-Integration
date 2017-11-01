@@ -1,12 +1,10 @@
 {
- "partner": "ING",
-  "datafilelocation" : "data",
-  "termlengthmonths" : "12",
-  "fieldseparator": "|",
-  "folders": { "folder1": "PortfolioFile",  
-  				"folder2": "AccountFile", 
-  				"folder3": "PortfolioProjectionFile", 
-  				"folder4": "PortfolioTransactionFile",
-  			}
+"partner_data" :
+	{
+	 "partner": "ING",
+	  "datafilelocation" : "data",
+	  "termlengthmonths" : "12",
+	  "fieldseparator": "|"
+	}
 }
 
