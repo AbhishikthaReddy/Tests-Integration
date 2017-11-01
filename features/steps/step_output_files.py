@@ -31,10 +31,30 @@ def step_presence_of_fee_plan(context):
 def step_presence_of_loan_plan(context):
 	pass
 
-@then('validate fee plan')
-def step_validate_fee_plan(context):
+@then('validate interest rate for fee plan')
+def step_validate_interest_rate_for_fee_plan(context):
 	pass
 
-@then('validate loan plan')
-def step_validate_loan_plan(context):
+@then('validate termlengthmonths for fee plan')
+def step_validate_termlengthmonths_for_fee_plan(context):
+	pass
+
+@then('validate interest rate for loan plan')
+def step_validate_interest_rate_for_loan_plan(context):
+	pass
+
+@then('validate termlengthmonths for loan plan')
+def step_validate_termlengthmonths_for_loan_plan(context):
+	pass
+
+@then('validate OriginalPurchaseAmount')
+def step_validate_OriginalPurchaseAmount(context):
+	pass
+
+@then('validate NextPaymentAmount')
+def step_validate_NextPaymentAmount(context):
+	pass
+
+@then('validate RemainingPayments')
+def step_validate_RemainingPayments(context):
 	pass

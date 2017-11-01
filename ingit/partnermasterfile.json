@@ -3,11 +3,10 @@
   "datafilelocation" : "data",
   "termlengthmonths" : "12",
   "fieldseparator": "|",
-
-  "files": {
-     "file1": {
-       "filename": "PortfolioFile"
-     }
-  }
+  "folders": { "folder1": "PortfolioFile",  
+  				"folder2": "AccountFile", 
+  				"folder3": "PortfolioProjectionFile", 
+  				"folder4": "PortfolioTransactionFile",
+  			}
 }
 
