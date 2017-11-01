@@ -4,7 +4,8 @@
 	 "partner": "ING",
 	  "datafilelocation" : "data",
 	  "termlengthmonths" : "12",
-	  "fieldseparator": "|"
+	  "fieldseparator": "|",
+	  "Originationfee" : "100"
 	}
 }
 
