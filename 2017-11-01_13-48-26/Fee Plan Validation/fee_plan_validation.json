@@ -1,9 +1,0 @@
-{
-    "Test name": "Validate InterestRate ",
-    "Result": "Passed",
-    "Output": "For AccountID: 385570 and for CustomerID: 2402202113 and for LoanID :262902the interest rate is validated"
-}{
-    "Test name": "Validate TermLengthMonths ",
-    "Result": "Passed",
-    "Output": "For AccountID: 385570 and for CustomerID: 2402202113 and for LoanID :262902the termlengthmonths is validated"
-}
