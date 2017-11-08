@@ -1,9 +1,20 @@
 from behave      import *
 from hamcrest    import assert_that, equal_to
+from findData import find
+
+
 
 @given('a file "{file}" and AccountID "{AccountID}" and CustomerID "{CustomerID}" and LoanID "{LoanID}"')
 def step_one_file(context,file,AccountID,CustomerID,LoanID):
+	# context.findData = find(int(AccountID))
+	print(isinstance(AccountID,int))
 	pass
+
+
+
+
+
+
 
 @given('a file "{file}" and AccountID "{AccountID}" and CustomerID "{CustomerID}"')
 def step_one_file(context,file,AccountID,CustomerID):
@@ -27,10 +38,11 @@ def step_the_values_are(context):
 
 @when('multiple loans are booked')
 def step_multiple_loans(context):
-    pass
+	pass
 
 @then('check fee plan in "{file1}"')
 def step_check_fee_plan_for(context,file1):
+	print("&&&&&&&&&&&")
 	pass
 
 @then('check loan plan in "{file1}"')

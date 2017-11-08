@@ -1,6 +1,6 @@
-Feature: taken one loan, one missed payment and total early repayment
+Feature: Validate presence of Fee Plan
 
 @all
 Scenario: To validate presence of fee plan
-   Given  a file
+   Given  a file for fee plan check
    Then   validate presence of fee plan

@@ -4,42 +4,53 @@
 		"Test-case1" :{
 			"AccountID" : "385030",
 			"CustomerID" : "200812202114",
-			"LoanIDs" : ["262901"],
+			"LoanIDs" : ["262914"],
 			"ScenarioOutline" : ["3"],
 			"LoanAmount" : "10000",
-			"InterestRate" : "14"
+			"InterestRate" : "14",
+			"OriginalPurchaseAmount" : "10000",
+			"RemainingPayments" : "12"
 		},
 		"Test-case2" :{
 			"AccountID" : "385570",
 			"CustomerID" : "2402202113",
-			"LoanIDs" : ["262902"],
+			"LoanIDs" : ["262914"],
 			"ScenarioOutline" : ["4"],
 			"LoanAmount" : "10000",
-			"InterestRate" : "14"
+			"InterestRate" : "14",
+			"OriginalPurchaseAmount" : "10000",
+			"RemainingPayments" : "12"
 		},
 		"Test-case3" :{
 			"AccountID" : "385570",
 			"CustomerID" : "2402202113",
-			"LoanIDs" : ["262902"],
+			"LoanIDs" : ["262914"],
 			"ScenarioOutline" : ["5"],
 			"LoanAmount" : "10000",
-			"InterestRate" : "14"
+			"InterestRate" : "14",
+			"OriginalPurchaseAmount" : "10000",
+			"RemainingPayments" : "12"
 		},
 		"Test-case4" :{
 			"AccountID" : "385570",
 			"CustomerID" : "2402202113",
-			"LoanIDs" : ["262902"],
+			"LoanIDs" : ["262914"],
 			"ScenarioOutline" : ["6"],
 			"LoanAmount" : "10000",
-			"InterestRate" : "14"
+			"InterestRate" : "14",
+			"OriginalPurchaseAmount" : "0",
+			"RemainingPayments" : "12"
 		},
 		"Test-case5" :{
 			"AccountID" : "385570",
 			"CustomerID" : "2402202113",
-			"LoanIDs" : ["262902"],
+			"LoanIDs" : ["262914"],
 			"ScenarioOutline" : [],
 			"LoanAmount" : "10000",
-			"InterestRate" : "14"
+			"InterestRate" : "14",
+			"OriginalPurchaseAmount" : "10000",
+			"RemainingPayments" : "12"
+
 		}
 
 	}
