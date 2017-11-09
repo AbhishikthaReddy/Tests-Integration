@@ -9,7 +9,8 @@
 			"LoanAmount" : "10000",
 			"InterestRate" : "14",
 			"OriginalPurchaseAmount" : "10000",
-			"RemainingPayments" : "12"
+			"RemainingPayments" : "12",
+			"AmountAppliedToLoan" : "10000.0"
 		},
 		"Test-case2" :{
 			"AccountID" : "385570",
@@ -19,7 +20,10 @@
 			"LoanAmount" : "10000",
 			"InterestRate" : "14",
 			"OriginalPurchaseAmount" : "10000",
-			"RemainingPayments" : "12"
+			"RemainingPayments" : "12",
+			"AmountAppliedToLoan" : "10000.0",
+			"CycleDate" : "10"
+
 		},
 		"Test-case3" :{
 			"AccountID" : "385570",
@@ -29,7 +33,9 @@
 			"LoanAmount" : "10000",
 			"InterestRate" : "14",
 			"OriginalPurchaseAmount" : "10000",
-			"RemainingPayments" : "12"
+			"RemainingPayments" : "12",
+			"AmountAppliedToLoan" : "10000.0",
+			"CycleDate" : "10"
 		},
 		"Test-case4" :{
 			"AccountID" : "385570",
@@ -39,7 +45,9 @@
 			"LoanAmount" : "10000",
 			"InterestRate" : "14",
 			"OriginalPurchaseAmount" : "0",
-			"RemainingPayments" : "12"
+			"RemainingPayments" : "12",
+			"AmountAppliedToLoan" : "10000.0",
+			"CycleDate" : "10"
 		},
 		"Test-case5" :{
 			"AccountID" : "385570",
@@ -49,7 +57,9 @@
 			"LoanAmount" : "10000",
 			"InterestRate" : "14",
 			"OriginalPurchaseAmount" : "10000",
-			"RemainingPayments" : "12"
+			"RemainingPayments" : "12",
+			"AmountAppliedToLoan" : "10000.0",
+			"CycleDate" : "10"
 
 		}
 

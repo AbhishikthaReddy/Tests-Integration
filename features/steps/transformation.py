@@ -9,7 +9,7 @@ class scenario(object):
 		self.fn = None
 
 
-	def scenario_writing_to_files(self, termlength, fieldsep, today_now, resultsfilelocation, accountid, customerid, loanid,interest_rate,originalpurchaseamount,remainingpayments):
+	def scenario_writing_to_files(self, termlength, fieldsep, today_now, resultsfilelocation, accountid, customerid, loanid,interest_rate,originalpurchaseamount,remainingpayments,amountappliedtoloan,cycledate):
 
 		try:
 
@@ -136,7 +136,6 @@ class scenario(object):
 
 				print("Error encountered "+str(err))
 
-			#validate nextpayment amount
 
 		#validate NextPayment Amount
 		for root, dirs, files in os.walk("data/PortfolioProjectionFile"):
@@ -161,9 +160,9 @@ class scenario(object):
 									line1 = {"Test name": "validate NextPaymentAmount", "Result": "Failed", "Output": " For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid)+" and for loanID: "+ str(loanid) +" the nextpaymentamount is validated " + str(Cal_nextpayment)}
 
 
-				with open(fee_plan_validation_folder+"fee_plan_validation.json", "a") as output:
-					json.dump(line1, output, indent=4)
-				output.close()
+					with open(fee_plan_validation_folder+"fee_plan_validation.json", "a") as output:
+						json.dump(line1, output, indent=4)
+					output.close()
 
 		#validate remainingpayments
 		for root, dirs, files in os.walk("data/PortfolioFile"):
@@ -189,9 +188,121 @@ class scenario(object):
 								line1 = {"Test name": "validate RemainingPayments", "Result": "Failed", "Output": " For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid)+" and for loanID: "+ str(loanid) +" the remainingpayments is not validated for " + str(remainingpayments)}
 
 
-				with open(fee_plan_validation_folder+"fee_plan_validation.json", "a") as output:
+					with open(fee_plan_validation_folder+"fee_plan_validation.json", "a") as output:
+						json.dump(line1, output, indent=4)
+					output.close()
+
+
+		# validate principalapplied
+		for root, dirs, files in os.walk("data/PortfolioTransactionFile"):
+
+			for file in files:
+
+				files1 = os.path.basename(file)
+				full_path = os.path.join(root, files1)
+
+				data_file = pd.read_csv(full_path, sep="|")
+				data_file_df = pd.DataFrame(data_file)
+
+				for i in range(len(data_file_df['CustomerID'])):
+					if str(data_file_df['AccountID'][i]) == str(accountid) and str(
+							data_file_df['CustomerID'][i]) == str(customerid) and str(data_file_df['LoanID'][i]) == str(
+							loanid):
+						if str(data_file_df['AmountAppliedToLoan'][i])==str(amountappliedtoloan) and str(amountappliedtoloan) == "10000.0":
+
+							line1 = {"Test name": "validate PrincipalApplied to loan", "Result": "Passed",
+									 "Output": " For AccountID: " + str(accountid) + " and for CustomerID: " + str(
+										 customerid) + " and for loanID: " + str(
+										 loanid) + " the amount of principal applied is validated "}
+							break
+
+						else:
+							line1 = {"Test name": "validate PrincipalApplied to loan", "Result": "Failed",
+									 "Output": " For AccountID: " + str(accountid) + " and for CustomerID: " + str(
+										 customerid) + " and for loanID: " + str(
+										 loanid) + "  the amount of principal applied is not validated " }
+
+				with open(fee_plan_validation_folder + "fee_plan_validation.json", "a") as output:
 					json.dump(line1, output, indent=4)
 				output.close()
+
+
+
+		#validate monthlyfee applied
+		for root, dirs, files in os.walk("data/PortfolioTransactionFile"):
+
+			for file in files:
+
+				files1 = os.path.basename(file)
+				full_path = os.path.join(root, files1)
+
+				data_file = pd.read_csv(full_path, sep="|")
+				data_file_df = pd.DataFrame(data_file)
+
+				for i in range(len(data_file_df['CustomerID'])):
+					if str(data_file_df['AccountID'][i]) == str(accountid) and str(
+							data_file_df['CustomerID'][i]) == str(customerid) and str(data_file_df['LoanID'][i]) == str(
+							loanid):
+						if str(data_file_df['AmountAppliedToLoan'][i]) == str(amountappliedtoloan) and str(
+								amountappliedtoloan) == "14.0":
+
+							line1 = {"Test name": "validate MonthlyFeeApplied to loan", "Result": "Passed",
+									 "Output": " For AccountID: " + str(accountid) + " and for CustomerID: " + str(
+										 customerid) + " and for loanID: " + str(
+										 loanid) + " the amount of monthlyfee applied is validated "}
+							break
+
+						else:
+							line1 = {"Test name": "validate MonthlyFeeApplied to loan", "Result": "Failed",
+									 "Output": " For AccountID: " + str(accountid) + " and for CustomerID: " + str(
+										 customerid) + " and for loanID: " + str(
+										 loanid) + "  the amount of monthlyfee applied is not validated " }
+
+				with open(fee_plan_validation_folder + "fee_plan_validation.json", "a") as output:
+					json.dump(line1, output, indent=4)
+				output.close()
+
+		# validate originationfee applied
+		for root, dirs, files in os.walk("data/PortfolioTransactionFile"):
+
+			for file in files:
+
+				files1 = os.path.basename(file)
+				full_path = os.path.join(root, files1)
+
+				data_file = pd.read_csv(full_path, sep="|")
+				data_file_df = pd.DataFrame(data_file)
+
+				for i in range(len(data_file_df['CustomerID'])):
+					if str(data_file_df['AccountID'][i]) == str(accountid) and str(
+							data_file_df['CustomerID'][i]) == str(customerid) and str(
+						data_file_df['LoanID'][i]) == str(
+						loanid):
+						if str(data_file_df['AmountAppliedToLoan'][i]) == str(amountappliedtoloan) and str(
+								amountappliedtoloan) == "100.0":
+
+							line1 = {"Test name": "validate OriginationFeeApplied to loan", "Result": "Passed",
+									 "Output": " For AccountID: " + str(
+										 accountid) + " and for CustomerID: " + str(
+										 customerid) + " and for loanID: " + str(
+										 loanid) + " the amount of monthlyfee applied is validated "}
+							break
+
+						else:
+							line1 = {"Test name": "validate OriginationFeeApplied to loan", "Result": "Failed",
+									 "Output": " For AccountID: " + str(
+										 accountid) + " and for CustomerID: " + str(
+										 customerid) + " and for loanID: " + str(
+										 loanid) + "  the amount of monthlyfee applied is not validated "}
+
+				with open(fee_plan_validation_folder + "fee_plan_validation.json", "a") as output:
+					json.dump(line1, output, indent=4)
+				output.close()
+
+
+
+
+
 
 
 
