@@ -32,7 +32,7 @@ def step_the_input_data(context):
 			originalpurchaseamount=input_json_data['Test-cases'].ix[i]['OriginalPurchaseAmount']
 			remainingpayments = input_json_data['Test-cases'].ix[i]['RemainingPayments']
 			amountappliedtoloan = input_json_data['Test-cases'].ix[i]['AmountAppliedToLoan']
-			cycledate = input_json_data['Test-cases'].ix[i]['CycleDate']
+			# cycledate = input_json_data['Test-cases'].ix[i]['CycleDate']
 
 			if len(scenarios_to_be_done) > 0:
 
@@ -46,7 +46,7 @@ def step_the_input_data(context):
 						@then('validate presence of fee plan')
 						def step_presence_of_fee_plan(context):
 							context.transformation = scenario()
-							context.transformation.scenario_writing_to_files(termlength, fieldsep, today_now, resultsfiles_loc, accountid, customerid, loanid[0],interest_rate,originalpurchaseamount,remainingpayments,amountappliedtoloan,cycledate)
+							context.transformation.scenario_writing_to_files(termlength, fieldsep, today_now, resultsfiles_loc, accountid, customerid, loanid[0],interest_rate,originalpurchaseamount,remainingpayments,amountappliedtoloan)
 							pass
 
 					elif scenarios_to_be_done[i] == "4":

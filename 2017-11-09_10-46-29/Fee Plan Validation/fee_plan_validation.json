@@ -1,0 +1,121 @@
+{
+    "Test name": "Loan Plan Check",
+    "Result": "Passed",
+    "Output": "For AccountID: 385570 and for CustomerID: 2402202113 the Loan Plan is present"
+}{
+    "Test name": "Validate InterestRate ",
+    "Result": "Passed",
+    "Output": "For AccountID: 385570 and for CustomerID: 2402202113 and for LoanID :262914the interest rate is validated"
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}{
+    "Test name": "check CycleDate",
+    "Result": "Passed",
+    "Output": " For AccountID: 385570 and for CustomerID: 2402202113 and for loanID: 262914 the cycle date is correct "
+}
