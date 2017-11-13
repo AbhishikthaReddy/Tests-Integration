@@ -22,7 +22,15 @@ try:
 		context.loanid = loanid
 		pass
 
+	@given('AccountId "{accountid}" and CustomerId "{customerid}"')
+	def step_accountid_customerid(context, accountid, customerid):
+		pass
+
 	@when('single loan is booked')
+	def step_single_loan_booked(context):
+		pass
+
+	@when('multiple loans are booked')
 	def step_single_loan_booked(context):
 		pass
 
@@ -36,15 +44,15 @@ try:
 		context.transformation.loan_plan_check(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid, context.loanid)
 		pass
 
-	@then('check InterestRate in "{foldername}"')
-	def step_check_interestrate(context, foldername):
+	@then('validate InterestRate of "{interest_rate}" in "{foldername}"')
+	def step_check_interestrate(context, foldername, interest_rate):
 		pass
 
-	@then('check TermLengthMonths in "{foldername}"')
-	def step_check_termlengthmonths(context, foldername):
+	@then('validate TermLengthMonths of "{term_length_months}" in "{foldername}"')
+	def step_check_termlengthmonths(context, foldername, term_length_months):
 		pass
 
-	@then('check OriginalPurchaseAmount in "{foldername}"')
+	@then('validate OriginalPurchaseAmount in "{foldername}"')
 	def step_check_originalpaymentamount(context, foldername):
 		pass
 
@@ -56,19 +64,19 @@ try:
 	def step_check_remaningpayments(context, foldername, amount):
 		pass
 
-	@then('check Principal applied in "{foldername}"')
+	@then('validate Principal applied in "{foldername}"')
 	def step_check_principal_applied(context, foldername):
 		pass
 
-	@then('check monthly fee applied in "{foldername}"')
+	@then('validate monthly fee applied in "{foldername}"')
 	def step_check_monthly_fee_applied(context, foldername):
 		pass
 
-	@then('check origination fee applied in "{foldername}"')
+	@then('validate origination fee applied in "{foldername}"')
 	def step_check_origination_fee_applied(context, foldername):
 		pass
 
-	@then('check for the amount applied to Cycle Date "{date}" in "{foldername1}" and "{foldername2}')
+	@then('validate for the amount applied to Cycle Date "{date}" in "{foldername1}" and "{foldername2}')
 	def step_check_amount_applied_cycledate(context, foldername1, foldername2, date):
 		pass
 
@@ -77,6 +85,10 @@ try:
 		pass
 
 	@then('validate CurrentDue of "{due}" in "{foldername}"')
+	def step_validate_currentdue(context, foldername, due):
+		pass
+
+	@then('validate PastDue of "{due}" in "{foldername}"')
 	def step_validate_currentdue(context, foldername, due):
 		pass
 

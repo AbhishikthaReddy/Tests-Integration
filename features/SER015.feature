@@ -1,4 +1,4 @@
-Feature: Validating the Test Case SER004
+Feature: Validating the Test Case SER0015
 
   @all
   Scenario: To check the Fee Plan
@@ -62,3 +62,16 @@ Feature: Validating the Test Case SER004
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901"
     When single loan is booked
     then validate CurrentDue of "847.35" in "PortfolioFile"
+
+  @all
+  Scenario: To check partial pastdue repayments for multiple loan
+    Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901"
+    When single loan is booked
+    then validate PastDue of " " in "PortfolioFile"
+
+  @all
+  Scenario: To check total pastdue repayment
+    Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901"
+    When single loan is booked
+    then validate PastDue of " " in "PortfolioFile"
+

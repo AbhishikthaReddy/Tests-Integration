@@ -1,4 +1,4 @@
-Feature: Validating the Test Case SER004
+Feature: Validating the Test Case SER024
 
   @all
   Scenario: To check the Fee Plan
