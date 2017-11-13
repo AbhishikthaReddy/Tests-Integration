@@ -17,6 +17,7 @@ class dir_create(object):
 		mydir_principal_validation = os.path.join(resultsfilelocation, today_now, "Principal Validation")
 		mydir_monthlyfee_validation = os.path.join(resultsfilelocation, today_now, "Monthlyfee Validation")
 		mydir_originationfee_validation = os.path.join(resultsfilelocation, today_now, "Originationfee Validation")
+		mydir_multiple_loan_plan_check = os.path.join(resultsfilelocation, today_now, "Multiple loan plan check")
 
 		if not os.path.exists(mydir_feeplan):
 			os.makedirs(mydir_feeplan)
@@ -38,5 +39,8 @@ class dir_create(object):
 
 		if not os.path.exists(mydir_originationfee_validation):
 			os.makedirs(mydir_originationfee_validation)
+
+		if not os.path.exists(mydir_multiple_loan_plan_check):
+			os.makedirs(mydir_multiple_loan_plan_check)
 
 		return today_now

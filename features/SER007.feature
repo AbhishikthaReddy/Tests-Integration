@@ -112,4 +112,22 @@ Feature: Validating the Test Case SER007
   Scenario: To check past due repayment
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901"
     When multiple loans are booked
-    then validate PastDue of "10" in "PortfolioFile"
+    then validate PastDue of " " in "PortfolioFile"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,16 +22,28 @@ try:
 		context.loanid = loanid
 		pass
 
+
 	@given('AccountId "{accountid}" and CustomerId "{customerid}"')
-	def step_accountid_customerid(context, accountid, customerid):
+	def step_accountid_customerid(context,accountid,customerid):
+		masterfile_loc = context.config.userdata.get("masterfile_loc")
+		context.resultsfiles_loc = context.config.userdata.get("resultsfiles_loc")
+		date = context.config.userdata.get("date")
+		context.files = retrieve_files()
+		context.dir_file = dir_create()
+		context.today_now = context.dir_file.dir(context.resultsfiles_loc)
+		fieldsep = context.files.files(date, masterfile_loc)
+		context.transformation = scenario()
+		context.accountid = accountid
+		context.customerid = customerid
 		pass
+
 
 	@when('single loan is booked')
 	def step_single_loan_booked(context):
 		pass
 
 	@when('multiple loans are booked')
-	def step_single_loan_booked(context):
+	def step_multiple_loan_booked(context):
 		pass
 
 	@then('check fee plan in "{foldername}"')
@@ -48,8 +60,14 @@ try:
 	def step_check_interestrate(context, foldername, interest_rate):
 		pass
 
-	@then('validate TermLengthMonths of "{term_length_months}" in "{foldername}"')
-	def step_check_termlengthmonths(context, foldername, term_length_months):
+	@then('validate loans in "{foldername}"')
+	def step_check_multiple_loans(context, foldername):
+		context.transformation.multiple_loan_validation(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid)
+		pass
+
+
+	@then('validate TermLengthMonths of "{termlengthmonths}" in "{foldername}"')
+	def step_check_termlengthmonths(context,termlengthmonths, foldername):
 		pass
 
 	@then('validate OriginalPurchaseAmount in "{foldername}"')
@@ -91,6 +109,7 @@ try:
 	@then('validate PastDue of "{due}" in "{foldername}"')
 	def step_validate_currentdue(context, foldername, due):
 		pass
+
 
 except Exception as err:
 	print("Error encountered "+str(err))
