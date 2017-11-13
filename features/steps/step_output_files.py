@@ -105,9 +105,3 @@ def step_the_input_data(context):
 		print("Error encountered "+str(err))
 
 	pass
-
-
-
-
-
-
