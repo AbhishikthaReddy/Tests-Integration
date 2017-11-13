@@ -17,25 +17,26 @@ class dir_create(object):
 		mydir_principal_validation = os.path.join(resultsfilelocation, today_now, "Principal Validation")
 		mydir_monthlyfee_validation = os.path.join(resultsfilelocation, today_now, "Monthlyfee Validation")
 		mydir_originationfee_validation = os.path.join(resultsfilelocation, today_now, "Originationfee Validation")
-		if not os.path.exists(today_now + "/" + mydir_feeplan):
+
+		if not os.path.exists(mydir_feeplan):
 			os.makedirs(mydir_feeplan)
 
-		if not os.path.exists(today_now + "/" + mydir_loanplan):
+		if not os.path.exists(mydir_loanplan):
 			os.makedirs(mydir_loanplan)
 
-		if not os.path.exists(today_now + "/" + mydir_feeplan_validation):
+		if not os.path.exists(mydir_feeplan_validation):
 			os.makedirs(mydir_feeplan_validation)
 
-		if not os.path.exists(today_now + "/" + mydir_loanplan_validation):
+		if not os.path.exists(mydir_loanplan_validation):
 			os.makedirs(mydir_loanplan_validation)
 
-		if not os.path.exists(today_now + "/" + mydir_principal_validation):
+		if not os.path.exists(mydir_principal_validation):
 			os.makedirs(mydir_principal_validation)
 
-		if not os.path.exists(today_now + "/" + mydir_monthlyfee_validation):
+		if not os.path.exists(mydir_monthlyfee_validation):
 			os.makedirs(mydir_monthlyfee_validation)
 
-		if not os.path.exists(today_now + "/" + mydir_originationfee_validation):
+		if not os.path.exists(mydir_originationfee_validation):
 			os.makedirs(mydir_originationfee_validation)
 
 		return today_now

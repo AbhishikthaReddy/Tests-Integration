@@ -11,8 +11,7 @@ class retrieve_files(object):
 		try:
 			masterfile = pd.read_json(masterfile_loc)
 			data_file_loc = masterfile['partner_data']['datafilelocation']
-			termlength = masterfile['partner_data']['termlengthmonths']
 			fieldsep = masterfile['partner_data']['fieldseparator']
-			return termlength, fieldsep
+			return fieldsep
 		except Exception as err:
 			print(err)

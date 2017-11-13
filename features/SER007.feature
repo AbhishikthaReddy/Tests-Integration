@@ -1,6 +1,6 @@
 Feature: Validating the Test Case SER007
 
-   @all
+  @all
   Scenario: To check the Fee Plan
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901"
     When single loan is booked
@@ -90,7 +90,6 @@ Feature: Validating the Test Case SER007
     When single loan is booked
     then validate OutstandingFees applied of "14" in "PortfolioFile"
 
-
   @all
   Scenario: To check missed payments for multiple loan
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901"
@@ -103,7 +102,6 @@ Feature: Validating the Test Case SER007
     When single loan is booked
     then validate CurrentDue of "847.35" in "PortfolioFile"
 
-
   @all
   Scenario: To check early repayments for multiple loan
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901"
@@ -114,21 +112,4 @@ Feature: Validating the Test Case SER007
   Scenario: To check past due repayment
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901"
     When multiple loans are booked
-    then validate PastDue of " " in "PortfolioFile"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    then validate PastDue of "10" in "PortfolioFile"

@@ -127,22 +127,3 @@ Feature: Validating the Test Case SER008
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901"
     When multiple loans are booked
     then validate PastDue of " " in "PortfolioFile"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

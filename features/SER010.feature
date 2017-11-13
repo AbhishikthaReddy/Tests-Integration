@@ -1,6 +1,6 @@
 Feature: Validating the Test Case SER010
 
-   @all
+  @all
   Scenario: To check the Fee Plan
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901"
     When single loan is booked
@@ -127,22 +127,3 @@ Feature: Validating the Test Case SER010
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901"
     When multiple loans are booked
     then validate PastDue of " " in "PortfolioFile"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
