@@ -6,12 +6,13 @@ from dir_file import dir_create
 import pandas as pd
 
 try:
-	@given('AccountId "{accountid}" and CustomerId "{customerid}" and LoanId "{loanid}"')
-	def step_accountid_customerid_loanid(context, accountid, customerid, loanid):
+
+	@given('AccountId "{accountid}" and CustomerId "{customerid}" and LoanId "{loanid}" and date "{date}"')
+	def step_accountid_customerid_loanid(context, accountid, customerid, loanid, date):
 
 		masterfile_loc = context.config.userdata.get("masterfile_loc")
 		context.resultsfiles_loc = context.config.userdata.get("resultsfiles_loc")
-		date = context.config.userdata.get("date")
+		context.date = date
 		context.files = retrieve_files()
 		context.dir_file = dir_create()
 		context.today_now = context.dir_file.dir(context.resultsfiles_loc)
@@ -22,8 +23,8 @@ try:
 		context.loanid = loanid
 		pass
 
-	@given('AccountId "{accountid}" and CustomerId "{customerid}"')
-	def step_accountid_customerid(context, accountid, customerid):
+	@given('AccountId "{accountid}" and CustomerId "{customerid}" and date "{date}"')
+	def step_accountid_customerid(context, accountid, customerid, date):
 		pass
 
 	@when('single loan is booked')
@@ -46,6 +47,7 @@ try:
 
 	@then('validate InterestRate of "{interest_rate}" in "{foldername}"')
 	def step_check_interestrate(context, foldername, interest_rate):
+		context.transformation.interest_rate_check(context.resultsfiles_loc, context.today_now, foldername,context.accountid, context.customerid, context.loanid, interest_rate)
 		pass
 
 	@then('validate TermLengthMonths of "{term_length_months}" in "{foldername}"')
