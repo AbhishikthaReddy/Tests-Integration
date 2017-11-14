@@ -1,0 +1,5 @@
+{
+    "Test name": "Multiple Loan Plan Validation",
+    "Result": "Passed",
+    "Output": "For AccountID: 385030 and for CustomerID: 200812202114 , 2 loans are present"
+}

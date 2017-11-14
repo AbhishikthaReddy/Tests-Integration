@@ -1,0 +1,5 @@
+{
+    "Test name": "validate OriginalPurchaseAmount",
+    "Result": "Failed",
+    "Output": "For AccountID: 385030 and for CustomerID: 200812202114 the original purchase amount is invalid"
+}

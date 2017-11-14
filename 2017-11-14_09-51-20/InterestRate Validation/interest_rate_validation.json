@@ -1,0 +1,5 @@
+{
+    "Test name": "Validate InterestRate ",
+    "Result": "Passed",
+    "Output": "For AccountID: 385030 and for CustomerID: 200812202114 and for LoanID :262901 the interest rate is validated"
+}

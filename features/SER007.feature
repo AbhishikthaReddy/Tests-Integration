@@ -23,17 +23,17 @@ Feature: Validating the Test Case SER007
   Scenario: To validate the Loan Plan
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901"
     When single loan is booked
-    then validate OriginalPurchaseAmount in "PortfolioFile"
-    and validate NextPaymentAmount of "847.35" in "PortfolioFile"
+    then validate OriginalPurchaseAmount of "10000.0" in "PortfolioFile"
+    and validate NextPaymentAmount of "847.35" in "PortfolioProjectionFile"
     and validate RemainingPayments of "11" in "PortfolioFile"
 
   @all
   Scenario: To validate multiple Loan Plans
     Given AccountId "385030" and CustomerId "200812202114"
     When multiple loans are booked
-    then validate OriginalPurchaseAmount in "PortfolioFile"
-    and validate NextPaymentAmount of "847.35" in "PortfolioFile"
-    and validate RemainingPayments of "11" in "PortfolioFile"
+    then validate loans in "PortfolioFile"
+
+
 
   @all
   Scenario: To validate Principal Applied for one loan

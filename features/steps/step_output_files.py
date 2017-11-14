@@ -56,30 +56,39 @@ try:
 		context.transformation.loan_plan_check(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid, context.loanid)
 		pass
 
-	@then('validate InterestRate of "{interest_rate}" in "{foldername}"')
-	def step_check_interestrate(context, foldername, interest_rate):
-		pass
-
 	@then('validate loans in "{foldername}"')
 	def step_check_multiple_loans(context, foldername):
 		context.transformation.multiple_loan_validation(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid)
 		pass
 
+	@then('validate InterestRate of "{interest_rate}" in "{foldername}"')
+	def step_check_interestrate(context, foldername, interest_rate):
+		context.transformation.interest_rate_check(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid, context.loanid, interest_rate)
+		pass
 
 	@then('validate TermLengthMonths of "{termlengthmonths}" in "{foldername}"')
 	def step_check_termlengthmonths(context,termlengthmonths, foldername):
+		context.transformation.term_length_months_check(context.resultsfiles_loc, context.today_now, foldername,
+												   context.accountid, context.customerid, context.loanid, termlengthmonths)
 		pass
 
-	@then('validate OriginalPurchaseAmount in "{foldername}"')
-	def step_check_originalpaymentamount(context, foldername):
+	@then('validate OriginalPurchaseAmount of "{originalpurchaseamount}" in "{foldername}"')
+	def step_check_originalpaymentamount(context, foldername, originalpurchaseamount):
+		context.transformation.validate_original_purchase_amount(context.resultsfiles_loc, context.today_now, foldername,
+														context.accountid, context.customerid, context.loanid,
+														originalpurchaseamount)
 		pass
 
-	@then('validate NextPaymentAmount of "{amount}" in "{foldername}"')
-	def step_check_nextpaymentamount(context, foldername, amount):
+	@then('validate NextPaymentAmount of "{nextpaymentamount}" in "{foldername}"')
+	def step_check_nextpaymentamount(context, foldername, nextpaymentamount):
+		#context.transformation.validate_nextpayment_amount(context.resultsfiles_loc, context.today_now, foldername,context.accountid, context.customerid, context.loanid,nextpaymentamount)
 		pass
 
-	@then('validate RemainingPayments of "{amount}" in "{foldername}"')
-	def step_check_remaningpayments(context, foldername, amount):
+	@then('validate RemainingPayments of "{remainingpaymentamount}" in "{foldername}"')
+	def step_check_remaningpayments(context, foldername, remainingpaymentamount):
+		context.transformation.validate_remainingpayment_amount(context.resultsfiles_loc, context.today_now, foldername,
+														   context.accountid, context.customerid, context.loanid,
+														   remainingpaymentamount)
 		pass
 
 	@then('validate Principal applied in "{foldername}"')

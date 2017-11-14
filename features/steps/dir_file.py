@@ -12,7 +12,11 @@ class dir_create(object):
 		today_now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 		mydir_feeplan = os.path.join(resultsfilelocation, today_now, "Fee Plan Check")
 		mydir_loanplan = os.path.join(resultsfilelocation, today_now, "Loan Plan Check")
-		mydir_feeplan_validation = os.path.join(resultsfilelocation, today_now, "Fee Plan Validation")
+		mydir_interestrate_validation = os.path.join(resultsfilelocation, today_now, "InterestRate Validation")
+		mydir_termlengthmonths_validation = os.path.join(resultsfilelocation, today_now, "TermLengthMonths Validation")
+		mydir_originalpurchaseamount_validation = os.path.join(resultsfilelocation, today_now, "OriginalPurchaseAmount Validation")
+		mydir_nextpaymentamount_validation = os.path.join(resultsfilelocation, today_now,"NextPaymentAmount Validation")
+		mydir_remainingpayments_validation = os.path.join(resultsfilelocation, today_now,"RemainingPayment Validation")
 		mydir_loanplan_validation = os.path.join(resultsfilelocation, today_now, "Loan Plan Validation")
 		mydir_principal_validation = os.path.join(resultsfilelocation, today_now, "Principal Validation")
 		mydir_monthlyfee_validation = os.path.join(resultsfilelocation, today_now, "Monthlyfee Validation")
@@ -25,8 +29,21 @@ class dir_create(object):
 		if not os.path.exists(mydir_loanplan):
 			os.makedirs(mydir_loanplan)
 
-		if not os.path.exists(mydir_feeplan_validation):
-			os.makedirs(mydir_feeplan_validation)
+		if not os.path.exists(mydir_interestrate_validation):
+			os.makedirs(mydir_interestrate_validation)
+
+		if not os.path.exists(mydir_originalpurchaseamount_validation):
+			os.makedirs(mydir_originalpurchaseamount_validation)
+
+		if not os.path.exists(mydir_nextpaymentamount_validation):
+			os.makedirs(mydir_nextpaymentamount_validation)
+
+		if not os.path.exists(mydir_termlengthmonths_validation):
+			os.makedirs(mydir_termlengthmonths_validation)
+
+		if not os.path.exists(mydir_remainingpayments_validation):
+			os.makedirs(mydir_remainingpayments_validation)
+
 
 		if not os.path.exists(mydir_loanplan_validation):
 			os.makedirs(mydir_loanplan_validation)
