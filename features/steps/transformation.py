@@ -3,6 +3,7 @@ import os, json
 from datetime import date
 from files import retrieve_files
 
+
 class scenario(object):
 
 	def __init__(self):
@@ -10,50 +11,88 @@ class scenario(object):
 
 	# fee plan check
 
-	def fee_plan_check(self, resultsfilelocation, today_now, foldername, accountid, customerid, loanid):
+	def fee_plan_check(self, resultsfilelocation, today_now, foldername, accountid, customerid, loanid, feature_name, scenario_name):
 
 		try:
-			fee_plan_check_ser007_pass = resultsfilelocation + "/" + today_now + "/" + "SER007/" + "Passed/"
-			fee_plan_check_ser007_fail= resultsfilelocation + "/" + today_now + "/" + "SER007/" + "Failed/"
-			ser004_pass = resultsfilelocation + "/" + today_now + "/" + "SER004/"
-			ser004_fail = resultsfilelocation + "/" + today_now + "/" + "SER004/"
-			fee_plan_check_ser008_pass = resultsfilelocation + "/" + today_now + "/" + "SER008/" + "Passed/"
-			fee_plan_check_ser008_fail = resultsfilelocation + "/" + today_now + "/" + "SER008/" + "Failed/"
-
-			for root, dirs, files in os.walk("data/"+foldername):
+			feature_list = []
+			pass_list = []
+			fail_list = []
+			passedfile =[]
+			for subdir, dirs, files in os.walk("features/"):
 				for file in files:
+					if file.endswith(".feature"):
+						base = os.path.basename(file)
+						feature_names = os.path.splitext(base)[0]
+						feature_list.append(feature_names)
+			for each_feature in feature_list:
+				Pass = resultsfilelocation + "/" + today_now + "/" + each_feature + "/"
+				Fail = resultsfilelocation + "/" +today_now  + "/" + each_feature + "/"
+				for root, dirs, files in os.walk("data/"+foldername):
+					for file in files:
+						files1 = os.path.basename(file)
+						full_path = os.path.join(root, files1)
+						data_file = pd.read_csv(full_path,sep="|")
+						data_file_df = pd.DataFrame(data_file)
+						for i in range(len(data_file_df['CustomerID'])):
+							if str(data_file_df['AccountID'][i]) == str(accountid) and str(data_file_df['CustomerID'][i]) == str(customerid) and str(data_file_df['LoanID'][i]) == str(loanid):
+								if data_file_df['PortfolioTransactionId'][i] == 0:
+									line1 = {"Test name": "Fee Plan Check", "Result": "Passed", "Output":"For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid) +" the Fee Plan is present","location":each_feature }
 
-					files1 = os.path.basename(file)
-					full_path = os.path.join(root, files1)
+									break
 
-					data_file = pd.read_csv(full_path,sep="|")
-					data_file_df = pd.DataFrame(data_file)
-
-					for i in range(len(data_file_df['CustomerID'])):
-						if str(data_file_df['AccountID'][i]) == str(accountid) and str(data_file_df['CustomerID'][i]) == str(customerid) and str(data_file_df['LoanID'][i]) == str(loanid):
-							if data_file_df['PortfolioTransactionId'][i] == 0:
-								line1 = {"Test name": "Fee Plan Check", "Result": "Passed", "Output": "For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid) +" the Fee Plan is present"}
-								break
+								else:
+									fail_list.append("For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid) +" the Fee Plan is not present")
+									line1 = {"Test name": "Fee Plan Check", "Result": "Failed", "Output": str(fail_list),"location":each_feature }
 
 							else:
-								line1 = {"Test name": "Fee Plan Check", "Result": "Failed", "Output": "For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid) +" the Fee Plan is not present"}
+								fail_list.append("For AccountID: " + str(accountid) + " and for CustomerID: " + str(
+									customerid) + " the Fee Plan is not present")
+								line1 = {"Test name": "Fee Plan Check", "Result": "Failed", "Output": str(fail_list),"location":each_feature}
 
-						else:
-							line1 = {"Test name": "Fee Plan Check", "Result": "Failed", "Output": "For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid) +" the Fee Plan is not present"}
+				if line1["Result"] == "Passed":
+					filename="PassedFile.json"
+					files = os.path.join(Pass,filename)
+					with open(files,'w') as f:
+						json.dump(line1, f, indent=4)
+						f.close()
+				else:
+					filename = "FailedFile.json"
+					files = os.path.join(Fail, filename)
+					with open(files, 'w') as f:
+						json.dump(line1, f, indent=4)
+						f.close()
 
 
-			if line1["Result"] == "Passed":
-
-				with open(ser004_pass+"passed_scenarios.json", "a") as output:
-					json.dump(line1, output, indent=4)
-				output.close()
 
 
-			else:
-				with open(ser004_fail + "failed_scenarios.json", "a") as output:
-					json.dump(line1, output, indent=4)
-				output.close()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				# passedfile.append(Pass)
+				# if line1["Result"] == "Passed":
+				# 	for i in passedfile:
+				# 		print(i)
+				# 		with open(i+"passedfile.json", "w") as output:
+				# 			print(line1,"000000000000000000")
+				# 			output.write(str(line1))
+				# 			json.dump(line1, output, indent=4)
+				# 			output.close()
+					# else:
+				# 	with open(Fail+"failed.json", "w+") as output:
+				# 		json.dump(line1, output, indent=4)
+				# 		output.close()
 
 
 		except Exception as err:

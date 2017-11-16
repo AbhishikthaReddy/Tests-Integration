@@ -21,6 +21,7 @@ try:
 		context.accountid = accountid
 		context.customerid = customerid
 		context.loanid = loanid
+
 		pass
 
 	@given('AccountId "{accountid}" and CustomerId "{customerid}" and date "{date}"')
@@ -37,17 +38,19 @@ try:
 
 	@then('check fee plan in "{foldername}"')
 	def step_check_fee_plan(context, foldername):
-		context.transformation.fee_plan_check(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid, context.loanid)
+		feature_name = context.feature
+		scenario_name = context.scenario
+		context.transformation.fee_plan_check(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid, context.loanid,feature_name,scenario_name)
 		pass
 
 	@then('check loan plan in "{foldername}"')
 	def step_check_loan_plan(context, foldername):
-		context.transformation.loan_plan_check(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid, context.loanid)
+		# context.transformation.loan_plan_check(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid, context.loanid)
 		pass
 
 	@then('validate InterestRate of "{interest_rate}" in "{foldername}"')
 	def step_check_interestrate(context, foldername, interest_rate):
-		context.transformation.interest_rate_check(context.resultsfiles_loc, context.today_now, foldername,context.accountid, context.customerid, context.loanid, interest_rate)
+		# context.transformation.interest_rate_check(context.resultsfiles_loc, context.today_now, foldername,context.accountid, context.customerid, context.loanid, interest_rate)
 		pass
 
 	@then('validate TermLengthMonths of "{term_length_months}" in "{foldername}"')
