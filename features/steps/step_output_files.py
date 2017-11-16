@@ -26,6 +26,17 @@ try:
 
 	@given('AccountId "{accountid}" and CustomerId "{customerid}" and date "{date}"')
 	def step_accountid_customerid(context, accountid, customerid, date):
+
+		masterfile_loc = context.config.userdata.get("masterfile_loc")
+		context.resultsfiles_loc = context.config.userdata.get("resultsfiles_loc")
+		context.date = date
+		context.files = retrieve_files()
+		context.dir_file = dir_create()
+		context.today_now = context.dir_file.dir(context.resultsfiles_loc)
+		fieldsep = context.files.files(date, masterfile_loc)
+		context.transformation = scenario()
+		context.accountid = accountid
+		context.customerid = customerid
 		pass
 
 	@when('single loan is booked')
@@ -38,35 +49,38 @@ try:
 
 	@then('check fee plan in "{foldername}"')
 	def step_check_fee_plan(context, foldername):
-		feature_name = context.feature
-		scenario_name = context.scenario
-		context.transformation.fee_plan_check(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid, context.loanid,feature_name,scenario_name)
+		context.transformation.fee_plan_check(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid, context.loanid)
 		pass
 
 	@then('check loan plan in "{foldername}"')
 	def step_check_loan_plan(context, foldername):
-		# context.transformation.loan_plan_check(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid, context.loanid)
+		context.transformation.loan_plan_check(context.resultsfiles_loc, context.today_now, foldername, context.accountid, context.customerid, context.loanid)
 		pass
 
 	@then('validate InterestRate of "{interest_rate}" in "{foldername}"')
 	def step_check_interestrate(context, foldername, interest_rate):
-		# context.transformation.interest_rate_check(context.resultsfiles_loc, context.today_now, foldername,context.accountid, context.customerid, context.loanid, interest_rate)
+		context.transformation.interest_rate_check(context.resultsfiles_loc, context.today_now, foldername,context.accountid, context.customerid, context.loanid, interest_rate)
 		pass
 
 	@then('validate TermLengthMonths of "{term_length_months}" in "{foldername}"')
 	def step_check_termlengthmonths(context, foldername, term_length_months):
+		context.transformation.term_length_months_check(context.resultsfiles_loc, context.today_now, foldername,
+												   context.accountid, context.customerid, context.loanid, term_length_months)
 		pass
 
-	@then('validate OriginalPurchaseAmount in "{foldername}"')
-	def step_check_originalpaymentamount(context, foldername):
+	@then('validate OriginalPurchaseAmount of "{original_purchase_amount}" in "{foldername}"')
+	def step_check_originalpurchaseamount(context, foldername, original_purchase_amount):
+		context.transformation.validate_original_purchase_amount(context.resultsfiles_loc, context.today_now, foldername,	context.accountid, context.customerid, original_purchase_amount)
 		pass
 
 	@then('validate NextPaymentAmount of "{amount}" in "{foldername}"')
 	def step_check_nextpaymentamount(context, foldername, amount):
 		pass
 
-	@then('validate RemainingPayments of "{amount}" in "{foldername}"')
-	def step_check_remaningpayments(context, foldername, amount):
+	@then('validate RemainingPayments of "{remainingpayments}" in "{foldername}"')
+	def step_check_remainingpayments(context, foldername, remainingpayments):
+		context.transformation.validate_original_purchase_amount(context.resultsfiles_loc, context.today_now,
+																 foldername, context.accountid,context.customerid, remainingpayments)
 		pass
 
 	@then('validate Principal applied in "{foldername}"')

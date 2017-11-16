@@ -1,6 +1,7 @@
-Feature: ITL006
+Feature: SER0015
 
-  Background: Validate ITL006
+
+  Background: Validate SER015
   Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901" and date "20160510"
   When single loan is booked
 
@@ -46,3 +47,12 @@ Feature: ITL006
   @all
   Scenario: To check for early repayments
     then validate CurrentDue of "847.35" in "PortfolioFile"
+
+  @all
+  Scenario: To check partial pastdue repayments for multiple loan
+    then validate PastDue of " " in "PortfolioFile"
+
+  @all
+  Scenario: To check total pastdue repayment
+    then validate PastDue of " " in "PortfolioFile"
+

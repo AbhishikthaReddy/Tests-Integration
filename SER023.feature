@@ -1,6 +1,6 @@
-Feature: ITL006
+Feature: Validating the Test Case SER023
 
-  Background: Validate ITL006
+  Background: Validate SER023
   Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901" and date "20160510"
   When single loan is booked
 

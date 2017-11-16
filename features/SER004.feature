@@ -20,7 +20,7 @@ Feature:SER004
 
   @all
   Scenario: To validate the Loan Plan
-    then validate OriginalPurchaseAmount in "PortfolioFile"
+    then validate OriginalPurchaseAmount of "10000" in "PortfolioFile"
     and validate NextPaymentAmount of "847.35" in "PortfolioFile"
     and validate RemainingPayments of "11" in "PortfolioFile"
 

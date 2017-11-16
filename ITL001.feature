@@ -23,7 +23,7 @@ Feature: Validating the Test Case ITL001
   Scenario: To validate the Loan Plan
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901" and date "20160510"
     When single loan is booked
-    then validate OriginalPurchaseAmount in "PortfolioFile"
+    then validate OriginalPurchaseAmount of "10000" in "PortfolioFile"
     and validate NextPaymentAmount of "847.35" in "PortfolioFile"
     and validate RemainingPayments of "11" in "PortfolioFile"
 
@@ -31,7 +31,7 @@ Feature: Validating the Test Case ITL001
   Scenario: To validate multiple Loan Plans
     Given AccountId "385030" and CustomerId "200812202114" and date "20160510"
     When multiple loans are booked
-    then validate OriginalPurchaseAmount in "PortfolioFile"
+    then validate OriginalPurchaseAmount of "10000" in "PortfolioFile"
     and validate NextPaymentAmount of "847.35" in "PortfolioFile"
     and validate RemainingPayments of "11" in "PortfolioFile"
 

@@ -1,4 +1,4 @@
-Feature: Validating the Test Case ITL002
+Feature: Validating the Test Case SER008
 
    @all
   Scenario: To check the Fee Plan
@@ -23,7 +23,7 @@ Feature: Validating the Test Case ITL002
   Scenario: To validate the Loan Plan
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901" and date "20160510"
     When single loan is booked
-    then validate OriginalPurchaseAmount in "PortfolioFile"
+    then validate OriginalPurchaseAmount of "10000" in "PortfolioFile"
     and validate NextPaymentAmount of "847.35" in "PortfolioFile"
     and validate RemainingPayments of "11" in "PortfolioFile"
 
@@ -31,7 +31,7 @@ Feature: Validating the Test Case ITL002
   Scenario: To validate multiple Loan Plans
     Given AccountId "385030" and CustomerId "200812202114" and date "20160510"
     When multiple loans are booked
-    then validate OriginalPurchaseAmount in "PortfolioFile"
+    then validate OriginalPurchaseAmount of "10000" in "PortfolioFile"
     and validate NextPaymentAmount of "847.35" in "PortfolioFile"
     and validate RemainingPayments of "11" in "PortfolioFile"
 
@@ -85,13 +85,45 @@ Feature: Validating the Test Case ITL002
     then validate for the amount applied to Cycle Date "10" in "AccountFile" and "PortfolioFile"
 
   @all
+   Scenario: To check missed payments for single loan
+    Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901" and date "20160510"
+    When single loan is booked
+    then validate OutstandingFees applied of "14" in "PortfolioFile"
+
+
+  @all
+  Scenario: To check missed payments for multiple loan
+    Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901" and date "20160510"
+    When multiple loans are booked
+    then validate OutstandingFees applied of "14" in "PortfolioFile"
+
+  @all
   Scenario: To check early repayments for single loan
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901" and date "20160510"
     When single loan is booked
     then validate CurrentDue of "847.35" in "PortfolioFile"
+
 
   @all
   Scenario: To check early repayments for multiple loan
     Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901" and date "20160510"
     When multiple loans are booked
     then validate CurrentDue of "847.35" in "PortfolioFile"
+
+  @all
+  Scenario: To check partial pastdue repayments for single loan
+    Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901" and date "20160510"
+    When single loan is booked
+    then validate PastDue of " " in "PortfolioFile"
+
+  @all
+  Scenario: To check partial pastdue repayments for multiple loan
+    Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901" and date "20160510"
+    When multiple loans are booked
+    then validate PastDue of " " in "PortfolioFile"
+
+  @all
+  Scenario: To check total pastdue repayment
+    Given AccountId "385030" and CustomerId "200812202114" and LoanId "262901" and date "20160510"
+    When multiple loans are booked
+    then validate PastDue of " " in "PortfolioFile"
