@@ -15,6 +15,7 @@ Feature: SER007
 
   @all
   Scenario: To validate the Fee Plan
+  Given date "20160610"
    When "1" loan is booked
    then validate InterestRate of "14" in "PortfolioFile"
    and validate TermLengthMonths of "12" in "PortfolioFile"
