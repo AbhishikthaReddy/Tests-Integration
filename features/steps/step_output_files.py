@@ -22,12 +22,12 @@ try:
 
 		pass
 
-	@when('single loan is booked')
-	def step_single_loan_booked(context):
+	@when('"{one}" loan is booked')
+	def step_single_loan_booked(context,one):
 		pass
 
-	@when('multiple loans are booked')
-	def step_single_loan_booked(context):
+	@when('"{more_than_one}" loans are booked')
+	def step_single_loan_booked(context,more_than_one):
 		pass
 
 	@then('check fee plan in "{foldername}"')
@@ -69,9 +69,9 @@ try:
 
 	@then('validate RemainingPayments of "{remainingpayments}" in "{foldername}" for date "{date1}"')
 	def step_check_remainingpayments(context, foldername, remainingpayments,date1):
-		scenario = context.scenario
-		context.transformation.validate_remaining_payment_amounts(context.resultsfiles_loc, context.today_now,
-																 foldername, context.accountid,context.customerid, remainingpayments,scenario,date1)
+		# scenario = context.scenario
+		# context.transformation.validate_remaining_payment_amounts(context.resultsfiles_loc, context.today_now,
+		# 														 foldername, context.accountid,context.customerid, remainingpayments,scenario,date1)
 		pass
 
 	@then('validate Principal applied of "{amountappliedtoloan}" in "{foldername}"')
@@ -128,9 +128,9 @@ try:
 
 	@then('validate multiple loans in "{foldername}"')
 	def step_validate_multiple_loans(context, foldername):
-		# scenario = context.scenario
-		# context.transformation.multiple_loan_validation(context.resultsfiles_loc, context.today_now,
-		# 											foldername, context.accountid, context.customerid,scenario)
+		scenario = context.scenario
+		context.transformation.multiple_loan_validation(context.resultsfiles_loc, context.today_now,
+													foldername, context.accountid, context.customerid, scenario, )
 
 		pass
 

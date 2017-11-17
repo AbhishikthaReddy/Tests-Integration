@@ -1,8 +1,8 @@
 Feature:SER004
 
   Background: Validate SER004
-  Given AccountId "385030" and CustomerId "200812202114" and date "20160610"
-  When single loan is booked
+  Given AccountId "385030" and CustomerId "200812202114" and date "20160510"
+  When "one" loan is booked
 
   @all
   Scenario: To check the Fee Plan

@@ -21,7 +21,7 @@ Feature: ITL006
   Scenario: To validate the Loan Plan
     then validate OriginalPurchaseAmount of "10000" in "PortfolioFile"
     and validate NextPaymentAmount of "847.35" in "PortfolioFile"
-    and validate RemainingPayments of "11" in "PortfolioFile"
+    and validate RemainingPayments of "11" in "PortfolioProjectionFile" for date "20160610"
 
 
   @all

@@ -320,6 +320,7 @@ class scenario(object):
 
 				for root, dirs, files in os.walk("data/" + foldername):
 					for file in files:
+
 						files1 = os.path.basename(file)
 						full_path = os.path.join(root, files1)
 						data_file = pd.read_csv(full_path, sep="|")
@@ -332,22 +333,19 @@ class scenario(object):
 										line1 = {"Test name": "validate RemainingPayments", "Result": "Passed",
 														 "Output": " For AccountID: " + str(
 															 accountid) + " and for CustomerID: " + str(
-															 customerid) + " the remainingpayments is validated for " + str(
-															 remainingpayments),"Scenario" :str(scenario)}
+															 customerid) + "The amount {} is validated for file {}".format(str(remainingpayments),str(files1)),"Scenario" :str(scenario)}
 										break
 									else:
 										line1 = {"Test name": "validate RemainingPayments", "Result": "Failed",
 												 "Output": " For AccountID: " + str(
 													 accountid) + " and for CustomerID: " + str(
-													 customerid) + " the remainingpayments is not validated for " + str(
-													 remainingpayments), "Scenario": str(scenario)}
+													 customerid) + "The amount {} is not validated for file {}".format(str(remainingpayments),str(files1)), "Scenario": str(scenario)}
 										break
 							else:
 								line1 = {"Test name": "validate RemainingPayments", "Result": "Failed",
 										 "Output": " For AccountID: " + str(
 											 accountid) + " and for CustomerID: " + str(
-											 customerid) + " the remainingpayments is not validated for " + str(
-											 remainingpayments), "Scenario" :str(scenario)}
+											 customerid) + "The amount {} is not validated for file {}".format(str(remainingpayments),str(files1)), "Scenario" :str(scenario)}
 
 						break
 
@@ -400,20 +398,20 @@ class scenario(object):
 										line1 = {"Test name": "validate NextPaymentAmount", "Result": "Passed",
 												 "Output": " For AccountID: " + str(
 													 accountid) + " and for CustomerID: " + str(
-													 customerid)  + " the nextpaymentamount is validated ","Scenario" :str(scenario)}
+													 customerid)  +"The amount {} is validated for file {}".format(str(nextpaymentamount),str(files1)),"Scenario" :str(scenario)}
 										break
 
 									else:
 										line1 = {"Test name": "validate NextPaymentAmount", "Result": "Failed",
 												 "Output": " For AccountID: " + str(
 													 accountid) + " and for CustomerID: " + str(
-													 customerid) + " the nextpaymentamount is not validated ","Scenario" :str(scenario)}
+													 customerid) + " The amount {} is not validated for file {}".format(str(nextpaymentamount),str(files1)),"Scenario" :str(scenario)}
 
 							else:
 								line1 = {"Test name": "validate NextPaymentAmount", "Result": "Failed",
 										 "Output": " For AccountID: " + str(
 											 accountid) + " and for CustomerID: " + str(
-											 customerid) + " the nextpaymentamount is not validated ", "Scenario" :str(scenario)}
+											 customerid) + " The amount {} is not validated for file {}".format(str(nextpaymentamount),str(files1)), "Scenario" :str(scenario)}
 
 
 				if line1["Result"] == "Passed":
@@ -465,19 +463,19 @@ class scenario(object):
 									line1 = {"Test name": "validate PrincipalApplied to loan", "Result": "Passed",
 											 "Output": " For AccountID: " + str(
 												 accountid) + " and for CustomerID: " + str(
-												 customerid) +  " the amount of principal applied is validated ","Scenario" :str(scenario)}
+												 customerid) + " The amount {} is not validated for file {}".format(str(amountappliedtoloan),str(files1)),"Scenario" :str(scenario)}
 									break
 
 								else:
 									line1 = {"Test name": "validate PrincipalApplied to loan", "Result": "Failed",
 											 "Output": " For AccountID: " + str(
 												 accountid) + " and for CustomerID: " + str(
-													 customerid)  + "  the amount of principal applied is not validated ", "Scenario" :str(scenario)}
+													 customerid)  + " The amount {} is not validated for file {}".format(str(amountappliedtoloan),str(files1)), "Scenario" :str(scenario)}
 							else:
 								line1 = {"Test name": "validate PrincipalApplied to loan", "Result": "Failed",
 										 "Output": " For AccountID: " + str(
 											 accountid) + " and for CustomerID: " + str(
-											 customerid) + "  the amount of principal applied is not validated ","Scenario" :str(scenario)}
+											 customerid) + "  the amount of principal applied is not validated "" The amount {} is not validated for file {}".format(str(amountappliedtoloan),str(files1)),"Scenario" :str(scenario)}
 
 
 				if line1["Result"] == "Passed":
@@ -529,19 +527,19 @@ class scenario(object):
 									line1 = {"Test name": "validate MonthlyFeeApplied to loan", "Result": "Passed",
 											 "Output": " For AccountID: " + str(
 												 accountid) + " and for CustomerID: " + str(
-												 customerid)  + " the amount of monthlyfee applied is validated ", "Scenario" :str(scenario)}
+												 customerid)  + " The amount {} is validated for file {}".format(str(monthlyfee),str(files1)), "Scenario" :str(scenario)}
 									break
 
 								else:
 									line1 = {"Test name": "validate MonthlyFeeApplied to loan", "Result": "Failed",
 											 "Output": " For AccountID: " + str(
 												 accountid) + " and for CustomerID: " + str(
-												 customerid)  + "  the amount of monthlyfee applied is not validated ","Scenario" :str(scenario)}
+												 customerid)  + " The amount {} is not validated for file {}".format(str(monthlyfee),str(files1)),"Scenario" :str(scenario)}
 							else:
 								line1 = {"Test name": "validate MonthlyFeeApplied to loan", "Result": "Failed",
 										 "Output": " For AccountID: " + str(
 											 accountid) + " and for CustomerID: " + str(
-											 customerid) + "  the amount of monthlyfee applied is not validated ","Scenario" :str(scenario)}
+											 customerid) + " The amount {} is not validated for file {}".format(str(monthlyfee),str(files1)),"Scenario" :str(scenario)}
 
 				if line1["Result"] == "Passed":
 					filename = "PassedFile.json"
@@ -592,14 +590,20 @@ class scenario(object):
 									line1 = {"Test name": "validate OriginationFeeApplied to loan", "Result": "Passed",
 											 "Output": " For AccountID: " + str(
 												 accountid) + " and for CustomerID: " + str(
-												 customerid)  + " the amount of monthlyfee applied is validated ","Scenario" :str(scenario)}
+												 customerid)  + " The amount {} is validated for file {}".format(str(originationfee),str(files1)), "Scenario" :str(scenario)}
 									break
 
 								else:
 									line1 = {"Test name": "validate OriginationFeeApplied to loan", "Result": "Failed",
 											 "Output": " For AccountID: " + str(
 												 accountid) + " and for CustomerID: " + str(
-												 customerid)  + "  the amount of monthlyfee applied is not validated ","Scenario" :str(scenario)}
+												 customerid)  + " The amount {} is not validated for file {}".format(str(originationfee),str(files1)),"Scenario" :str(scenario)}
+							else:
+								line1 = {"Test name": "validate OriginationFeeApplied to loan", "Result": "Failed",
+										 "Output": " For AccountID: " + str(
+											 accountid) + " and for CustomerID: " + str(
+											 customerid) + " The amount {} is not validated for file {}".format(
+											 str(originationfee), str(files1)), "Scenario": str(scenario)}
 
 				if line1["Result"] == "Passed":
 					filename = "PassedFile.json"
@@ -649,7 +653,7 @@ class scenario(object):
 											 "Result": "Passed",
 											 "Output": " For AccountID: " + str(
 												 accountid) + " and for CustomerID: " + str(
-												 customerid) + " the amount of outstandingfees applied is validated ","Scenario" :str(scenario)}
+												 customerid) + " The amount {} is validated for file {}".format(str(outstandingfees),str(files1)),"Scenario" :str(scenario)}
 									break
 
 								else:
@@ -657,13 +661,13 @@ class scenario(object):
 											 "Result": "Failed",
 											 "Output": " For AccountID: " + str(
 												 accountid) + " and for CustomerID: " + str(
-												 customerid) + "  the amount of outstandingfees applied is not validated ","Scenario" :str(scenario)}
+												 customerid) + " The amount {} is not validated for file {}".format(str(outstandingfees),str(files1)),"Scenario" :str(scenario)}
 							else:
 								line1 = {"Test name": "validate Outstandingfees applied to loan",
 										 "Result": "Failed",
 										 "Output": " For AccountID: " + str(
 											 accountid) + " and for CustomerID: " + str(
-											 customerid) + "  the amount of outstandingfees applied is not validated ", "Scenario" :str(scenario)}
+											 customerid) + " The amount {} is not validated for file {}".format(str(outstandingfees),str(files1)), "Scenario" :str(scenario)}
 
 				if line1["Result"] == "Passed":
 					filename = "PassedFile.json"
@@ -716,7 +720,7 @@ class scenario(object):
 												 "Result": "Passed",
 												 "Output": " For AccountID: " + str(
 													 accountid) + " and for CustomerID: " + str(
-													 customerid) + " the amount of currentdue is validated ","Scenario" :str(scenario)}
+													 customerid) + " The amount {} is validated for file {}".format(str(currentdue),str(files1)),"Scenario" :str(scenario)}
 										break
 
 									else:
@@ -724,13 +728,13 @@ class scenario(object):
 												 "Result": "Failed",
 												 "Output": " For AccountID: " + str(
 													 accountid) + " and for CustomerID: " + str(
-													 customerid) + "  the amount of currentdue is not validated ", "Scenario" :str(scenario)}
+													 customerid) + " The amount {} is not validated for file {}".format(str(currentdue),str(files1)), "Scenario" :str(scenario)}
 							else:
 								line1 = {"Test name": "validate CurrentDue of loan",
 										 "Result": "Failed",
 										 "Output": " For AccountID: " + str(
 											 accountid) + " and for CustomerID: " + str(
-											 customerid) + "  the amount of currentdue is not validated ","Scenario" :str(scenario)}
+											 customerid) + " The amount {} is not validated for file {}".format(str(currentdue),str(files1)),"Scenario" :str(scenario)}
 
 				if line1["Result"] == "Passed":
 					filename = "PassedFile.json"
@@ -782,7 +786,7 @@ class scenario(object):
 												 "Result": "Passed",
 												 "Output": " For AccountID: " + str(
 													 accountid) + " and for CustomerID: " + str(
-													 customerid) + " the amount of pastdue is validated ", "Scenario" :str(scenario)}
+													 customerid) + " The amount {} is validated for file {}".format(str(pastdue),str(files1)), "Scenario" :str(scenario)}
 										break
 
 									else:
@@ -790,13 +794,13 @@ class scenario(object):
 												 "Result": "Failed",
 												 "Output": " For AccountID: " + str(
 													 accountid) + " and for CustomerID: " + str(
-													 customerid) + "  the amount of pastdue is not validated ","Scenario" :str(scenario)}
+													 customerid) + " The amount {} is not validated for file {}".format(str(pastdue),str(files1)),"Scenario" :str(scenario)}
 							else:
 								line1 = {"Test name": "validate PastDue of loan",
 										 "Result": "Failed",
 										 "Output": " For AccountID: " + str(
 											 accountid) + " and for CustomerID: " + str(
-											 customerid) + "  the amount of pastdue is not validated ","Scenario" :str(scenario)}
+											 customerid) + " The amount {} is not validated for file {}".format(str(pastdue),str(files1)),"Scenario" :str(scenario)}
 
 				if line1["Result"] == "Passed":
 					filename = "PassedFile.json"
@@ -847,26 +851,26 @@ class scenario(object):
 												 "Result": "Passed",
 												 "Output": " For AccountID: " + str(
 													 accountid) + " and for CustomerID: " + str(
-													 customerid) + " the amount applied to Cycle Date is validated ","Scenario" :str(scenario)}
+													 customerid) + " The amount applied to cycledate {} is validated for file {}".format(str(cycledate),str(files1)),"Scenario" :str(scenario)}
 										break
 									else:
 										line1 = {"Test name": "validate for the amount applied to Cycle Date of loan",
 												 "Result": "Failed",
 												 "Output": " For AccountID: " + str(
 													 accountid) + " and for CustomerID: " + str(
-													 customerid) + "  the amount applied to Cycle Date is not validated ","Scenario" :str(scenario)}
+													 customerid) + " The amount applied to cycledate {} is not validated for file {}".format(str(cycledate),str(files1)),"Scenario" :str(scenario)}
 								else:
 									line1 = {"Test name": "validate for the amount applied to Cycle Date of loan",
 											 "Result": "Failed",
 											 "Output": " For AccountID: " + str(
 												 accountid) + " and for CustomerID: " + str(
-												 customerid) + "  the amount applied to Cycle Date is not validated ","Scenario" :str(scenario)}
+												 customerid) + " The amount applied to cycledate {} is not validated for file {}".format(str(cycledate),str(files1)) ,"Scenario" :str(scenario)}
 							else:
 								line1 = {"Test name": "validate for the amount applied to Cycle Date of loan",
 										 "Result": "Failed",
 										 "Output": " For AccountID: " + str(
 											 accountid) + " and for CustomerID: " + str(
-											 customerid) + " the amount applied to Cycle Date is not validated ","Scenario" :str(scenario)}
+											 customerid) + " The amount applied to cycledate {} is not validated for file {}".format(str(cycledate),str(files1)),"Scenario" :str(scenario)}
 
 				if line1["Result"] == "Passed":
 					filename = "PassedFile.json"
@@ -911,23 +915,19 @@ class scenario(object):
 						for i in range(len(data_file_df['CustomerID'])):
 								if str(data_file_df['AccountID'][i]) == str(accountid) and str(
 										data_file_df['CustomerID'][i]) == str(customerid):
-									if data_file_df['LoanID'][i]>1:
-										line1 = {"Test name": "Multiple Loan Plan Validation", "Result": "Passed",
-												 "Output": "For AccountID: " + str(
-													 accountid) + " and for CustomerID: " + str(
-													 customerid) + " there are multiple loans", "Scenario" :str(scenario)}
-										break
-									else:
-										line1 = {"Test name": "Multiple Loan Plan Validation", "Result": "Failed",
-												 "Output": "For AccountID: " + str(
-													 accountid) + " and for CustomerID: " + str(
-													 customerid) + " there are no multiple loans","Scenario" :str(scenario)}
+										no_loans = data_file_df['AccountID'].value_counts()
+										if str(no_loans) > "1":
+											line1 = {"Test name": "Multiple Loan Plan Validation", "Result": "Passed",
+															 "Output": "For AccountID: " + str(
+																 accountid) + " and for CustomerID: " + str(
+																 customerid) + " The multiple loans is validated for file {}".format(str(files1)), "Scenario" :str(scenario)}
 
+										break
 								else:
 									line1 = {"Test name": "Multiple Loan Plan Validation", "Result": "Failed",
-												 "Output": "For AccountID: " + str(
-													 accountid) + " and for CustomerID: " + str(
-													 customerid) + " there are no multiple loans","Scenario" :str(scenario)}
+											 "Output": "For AccountID: " + str(
+												 accountid) + " and for CustomerID: " + str(
+												 customerid) + " The multiple loans is validated for file {}".format(str(files1)),"Scenario" :str(scenario)}
 
 				if line1["Result"] == "Passed":
 					filename = "PassedFile.json"
