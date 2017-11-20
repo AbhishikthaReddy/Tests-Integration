@@ -1,7 +1,7 @@
 Feature: ITL001
 
   Background: Validate ITL001
-  Given AccountId "385030" and CustomerId "200812202114" and date ""
+  Given AccountId "3850330" and CustomerId "200812202114" and date "20160610"
   When single loan is booked
 
   @all

@@ -1,4 +1,4 @@
-Feature: Validating the Test Case SER008
+Feature: SER008
 
   Background: Validate SER008
   Given AccountId "385030" and CustomerId "200812202114" and date "20160510"

@@ -1,4 +1,4 @@
-Feature: SER0015
+Feature: SER015
 
 
   Background: Validate SER015

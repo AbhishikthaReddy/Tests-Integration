@@ -141,7 +141,7 @@ try:
 	def step_validate_multiple_loans(context, foldername):
 		scenario = context.scenario
 		context.transformation.multiple_loan_validation(context.resultsfiles_loc, context.today_now,
-													foldername, context.accountid, context.customerid, scenario, )
+													foldername, context.accountid, context.customerid, scenario)
 
 		pass
 

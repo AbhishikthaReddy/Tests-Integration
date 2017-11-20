@@ -8,6 +8,7 @@ class scenario(object):
 
 	def __init__(self):
 		self.fn = None
+		self.result = None
 
 	# fee plan check
 
@@ -24,36 +25,36 @@ class scenario(object):
 			for each_feature in feature_list:
 				Pass = resultsfilelocation + "/" + today_now + "/" + each_feature + "/"
 				Fail = resultsfilelocation + "/" +today_now  + "/" + each_feature + "/"
-			for root, dirs, files in os.walk("data/"+foldername):
-				for file in files:
-					files1 = os.path.basename(file)
-					full_path = os.path.join(root, files1)
-					data_file = pd.read_csv(full_path,sep="|")
-					data_file_df = pd.DataFrame(data_file)
-					for i in range(len(data_file_df['CustomerID'])):
-						if str(data_file_df['AccountID'][i]) == str(accountid) and str(data_file_df['CustomerID'][i]) == str(customerid):
-							if data_file_df['PortfolioTransactionId'][i] == 0:
-								line1 = {"Test name": "Fee Plan Check", "Result": "Passed", "Output":"For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid) +" the Fee Plan is present in file {}".format(files1), "Scenario" :str(scenario)}
-								break
+				for root, dirs, files in os.walk("data/"+foldername):
+					for file in files:
+						files1 = os.path.basename(file)
+						full_path = os.path.join(root, files1)
+						data_file = pd.read_csv(full_path,sep="|")
+						data_file_df = pd.DataFrame(data_file)
+						for i in range(len(data_file_df['CustomerID'])):
+							if str(data_file_df['AccountID'][i]) == str(accountid) and str(data_file_df['CustomerID'][i]) == str(customerid):
+								if data_file_df['PortfolioTransactionId'][i] == 0:
+									line1 = {"Test name": "Fee Plan Check", "Result": "Passed", "Output":"For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid) +" the Fee Plan is present in file {}".format(files1), "Scenario" :str(scenario)}
+									break
+
+								else:
+									line1 = {"Test name": "Fee Plan Check", "Result": "Failed", "Output": "For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid) +" the Fee Plan is not present in file {}".format(files1),"Scenario" :str(scenario)}
 
 							else:
-								line1 = {"Test name": "Fee Plan Check", "Result": "Failed", "Output": "For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid) +" the Fee Plan is not present in file {}".format(files1),"Scenario" :str(scenario)}
+								line1 = {"Test name": "Fee Plan Check", "Result": "Failed", "Output": "For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid) +" the Fee Plan is not present in file {}".format(files1), "Scenario" :str(scenario)}
 
-						else:
-							line1 = {"Test name": "Fee Plan Check", "Result": "Failed", "Output": "For AccountID: "+ str(accountid)+ " and for CustomerID: "+ str(customerid) +" the Fee Plan is not present in file {}".format(files1), "Scenario" :str(scenario)}
-
-			if line1["Result"] == "Passed":
-				filename="PassedFile.json"
-				files = os.path.join(Pass,filename)
-				with open(files,'a') as f:
-					json.dump(line1, f, indent=4)
-					f.close()
-			else:
-				filename = "FailedFile.json"
-				files = os.path.join(Fail, filename)
-				with open(files, 'a') as f:
-					json.dump(line1, f, indent=4)
-					f.close()
+				if line1["Result"] == "Passed":
+					filename="PassedFile.json"
+					files = os.path.join(Pass,filename)
+					with open(files,'a') as f:
+						json.dump(line1, f, indent=4)
+						f.close()
+				else:
+					filename = "FailedFile.json"
+					files = os.path.join(Fail, filename)
+					with open(files, 'a') as f:
+						json.dump(line1, f, indent=4)
+						f.close()
 
 
 		except Exception as err:
@@ -232,8 +233,8 @@ class scenario(object):
 
 	# validate originalpurchaseamount
 
-	def validate_original_purchase_amount(self, resultsfilelocation, today_now, foldername, accountid, customerid,
-										  originalpurchaseamount,scenario):
+	def validate_original_purchase_amount(self, resultsfilelocation, today_now, foldername, accountid, customerid,originalpurchaseamount,scenario
+										  ):
 		try:
 			feature_list = []
 			for subdir, dirs, files in os.walk("features/"):
@@ -886,11 +887,12 @@ class scenario(object):
 			print("Error encountered: " + str(err))
 
 
-	# validate multiple loan Plans
-	def multiple_loan_validation(self, resultsfilelocation, today_now, foldername, accountid, customerid,scenario):
+	# validate loan Plans
+	def multiple_loan_validation(self, resultsfilelocation, today_now, accountid, customerid,scenario,foldername):
 
 		try:
 			feature_list = []
+			count = 0
 			for subdir, dirs, files in os.walk("features/"):
 				for file in files:
 					if file.endswith(".feature"):
@@ -900,30 +902,32 @@ class scenario(object):
 			for each_feature in feature_list:
 				Pass = resultsfilelocation + "/" + today_now + "/" + each_feature + "/"
 				Fail = resultsfilelocation + "/" + today_now + "/" + each_feature + "/"
-
 				for root, dirs, files in os.walk("data/" + foldername):
 					for file in files:
 						files1 = os.path.basename(file)
 						full_path = os.path.join(root, files1)
 						data_file = pd.read_csv(full_path, sep="|")
 						data_file_df = pd.DataFrame(data_file)
-
 						for i in range(len(data_file_df['CustomerID'])):
 								if str(data_file_df['AccountID'][i]) == str(accountid) and str(
 										data_file_df['CustomerID'][i]) == str(customerid):
-										no_loans = data_file_df['AccountID'].value_counts()
-										if str(no_loans) > "1":
-											line1 = {"Test name": "Multiple Loan Plan Validation", "Result": "Passed",
-															 "Output": "For AccountID: " + str(
-																 accountid) + " and for CustomerID: " + str(
-																 customerid) + " The multiple loans is validated for file {}".format(str(files1)), "Scenario" :str(scenario)}
+									print(data_file_df['LoanID'][i])
+									if data_file_df['LoanID'].count() > 1:
+										count = count + 1
+						if count > 1:
+							line1 = {"Test name": "Multiple Loan Plan Validation", "Result": "Passed",
+									 "Output": "For AccountID: " + str(
+										 accountid) + " and for CustomerID: " + str(
+										 customerid) + " The multiple loans is validated for file {}".format(
+										 str(files1)), "Scenario": str(scenario)}
 
-										break
-								else:
-									line1 = {"Test name": "Multiple Loan Plan Validation", "Result": "Failed",
-											 "Output": "For AccountID: " + str(
-												 accountid) + " and for CustomerID: " + str(
-												 customerid) + " The multiple loans is validated for file {}".format(str(files1)),"Scenario" :str(scenario)}
+
+						else:
+							line1 = {"Test name": "Multiple Loan Plan Validation", "Result": "Failed",
+									 "Output": "For AccountID: " + str(
+										 accountid) + " and for CustomerID: " + str(
+										 customerid) + " The multiple loans is validated for file {}".format(
+										 str(files1)), "Scenario": str(scenario)}
 
 				if line1["Result"] == "Passed":
 					filename = "PassedFile.json"
