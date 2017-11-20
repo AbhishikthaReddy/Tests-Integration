@@ -8,7 +8,6 @@ class scenario(object):
 
 	def __init__(self):
 		self.fn = None
-		self.result = None
 
 	# fee plan check
 
@@ -888,7 +887,8 @@ class scenario(object):
 
 
 	# validate loan Plans
-	def multiple_loan_validation(self, resultsfilelocation, today_now, accountid, customerid,scenario,foldername):
+	def multiple_loan_validation(self, resultsfilelocation, today_now,
+														foldername, accountid, customerid, scenario):
 
 		try:
 			feature_list = []
@@ -899,6 +899,7 @@ class scenario(object):
 						base = os.path.basename(file)
 						feature_names = os.path.splitext(base)[0]
 						feature_list.append(feature_names)
+
 			for each_feature in feature_list:
 				Pass = resultsfilelocation + "/" + today_now + "/" + each_feature + "/"
 				Fail = resultsfilelocation + "/" + today_now + "/" + each_feature + "/"
@@ -909,18 +910,17 @@ class scenario(object):
 						data_file = pd.read_csv(full_path, sep="|")
 						data_file_df = pd.DataFrame(data_file)
 						for i in range(len(data_file_df['CustomerID'])):
-								if str(data_file_df['AccountID'][i]) == str(accountid) and str(
-										data_file_df['CustomerID'][i]) == str(customerid):
-									print(data_file_df['LoanID'][i])
-									if data_file_df['LoanID'].count() > 1:
-										count = count + 1
+							if str(data_file_df['AccountID'][i]) == str(accountid) and str(
+									data_file_df['CustomerID'][i]) == str(customerid):
+								if data_file_df['LoanID'].count() > 1:
+									count = count + 1
+
 						if count > 1:
 							line1 = {"Test name": "Multiple Loan Plan Validation", "Result": "Passed",
 									 "Output": "For AccountID: " + str(
 										 accountid) + " and for CustomerID: " + str(
 										 customerid) + " The multiple loans is validated for file {}".format(
 										 str(files1)), "Scenario": str(scenario)}
-
 
 						else:
 							line1 = {"Test name": "Multiple Loan Plan Validation", "Result": "Failed",
