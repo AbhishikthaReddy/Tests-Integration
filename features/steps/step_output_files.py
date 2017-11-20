@@ -33,12 +33,12 @@ try:
 		context.transformation = scenario()
 		pass
 
-	@when('"{one}" loan is booked')
-	def step_single_loan_booked(context,one):
+	@when('single loan is booked')
+	def step_single_loan_booked(context):
 		pass
 
-	@when('"{more_than_one}" loans are booked')
-	def step_single_loan_booked(context,more_than_one):
+	@when('multiple loans are booked')
+	def step_single_loan_booked(context):
 		pass
 
 	@then('check fee plan in "{foldername}"')

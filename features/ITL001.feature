@@ -1,9 +1,8 @@
-Feature: SER007
+Feature: ITL001
 
-  Background: Validate SER007
-  Given AccountId "385570" and CustomerId "2402202113" and date "20160510"
+  Background: Validate ITL001
+  Given AccountId "385030" and CustomerId "200812202114" and date ""
   When single loan is booked
-
 
   @all
   Scenario: To check the Fee Plan
@@ -15,7 +14,6 @@ Feature: SER007
 
   @all
   Scenario: To validate the Fee Plan
-  Given date "20160610"
    then validate InterestRate of "14" in "PortfolioFile"
    and validate TermLengthMonths of "12" in "PortfolioFile"
 
@@ -30,13 +28,13 @@ Feature: SER007
     When multiple loans are booked
     then validate multiple loans in "PortfolioFile"
 
-
   @all
   Scenario: To validate Principal Applied for one loan
     then validate Principal applied of "10000" in "PortfolioTransactionFile"
 
   @all
   Scenario: To validate Principal Applied for multiple loan
+    When multiple loans are booked
     then validate Principal applied of "10000" in "PortfolioTransactionFile"
 
   @all
@@ -57,7 +55,6 @@ Feature: SER007
     When multiple loans are booked
     then validate origination fee applied of "100" in "PortfolioTransactionFile"
 
-
   @all
   Scenario: To validate Cycle Date for one loan
     then validate for the amount applied to Cycle Date "10" in "AccountFile"
@@ -66,26 +63,3 @@ Feature: SER007
   Scenario: To validate Cycle Date for multiple loan
     When multiple loans are booked
     then validate for the amount applied to Cycle Date "10" in "AccountFile"
-
-  @all
-   Scenario: To check missed payments for single loan
-    then validate OutstandingFees applied of "14" in "PortfolioFile"
-
-  @all
-  Scenario: To check missed payments for multiple loan
-    When multiple loans are booked
-    then validate OutstandingFees applied of "14" in "PortfolioFile"
-
-  @all
-  Scenario: To check early repayments for single loan
-    then validate CurrentDue of "847.35" in "PortfolioFile"
-
-  @all
-  Scenario: To check early repayments for multiple loan
-    When multiple loans are booked
-    then validate CurrentDue of "847.35" in "PortfolioFile"
-
-  @all
-  Scenario: To check past due repayment
-    When multiple loans are booked
-    then validate PastDue of "10" in "PortfolioFile"
